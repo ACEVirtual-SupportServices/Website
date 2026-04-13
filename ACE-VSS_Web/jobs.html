@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Open Roles — ACE Virtual Support Services</title>
+  <meta name="description" content="Active roles being sourced through ACE Virtual Support Services. Read requirements carefully before applying."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --forest:       #1a2e22;
+      --forest-mid:   #243b2d;
+      --forest-light: #2f4d3a;
+      --cream:        #f5f0e8;
+      --cream-warm:   #ede6d8;
+      --gold:         #c9a84c;
+      --gold-light:   #e0c278;
+      --gold-deep:    #a8863a;
+      --sage:         #7a9e87;
+      --text:         #1a1a1a;
+      --text-mid:     #3a3a3a;
+      --text-light:   #5a5a5a;
+      --white:        #ffffff;
+      --focus-ring:   #c9a84c;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; font-size: 16px; line-height: 1.6; }
+
+    /* PAGE IDENTITY — VSPs page uses gold hero, editorial feel, distinct from both homepage and clients */
+
+    /* ACCESSIBILITY */
+    .skip-link { position: absolute; top: -100px; left: 1rem; background: var(--gold); color: var(--forest); padding: .6rem 1.2rem; font-size: 0.875rem; font-weight: 600; text-decoration: none; border-radius: 2px; z-index: 9999; transition: top .2s; }
+    .skip-link:focus { top: 1rem; }
+    *:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 3px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 1.2rem 4rem; display: flex; align-items: center; justify-content: space-between; background: rgba(26,46,34,0.98); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.2); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--cream); letter-spacing: 0.05em; text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { color: rgba(245,240,232,0.72); text-decoration: none; font-size: 0.875rem; letter-spacing: 0.08em; text-transform: uppercase; transition: color .2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { background: var(--gold); color: var(--forest); padding: .55rem 1.4rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background .2s; white-space: nowrap; }
+    .nav-cta:hover { background: var(--gold-light); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: .4rem; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--cream); transition: transform .3s, opacity .3s; border-radius: 2px; }
+    .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-drawer { position: fixed; top: 0; left: unset; right: -100%; width: min(320px, 85vw); height: 100vh; background: var(--forest); z-index: 300; padding: 5rem 2rem 2rem; display: flex; flex-direction: column; transition: right .35s cubic-bezier(.4,0,.2,1); box-shadow: -8px 0 32px rgba(0,0,0,0.3); overflow-y: auto; }
+    .mobile-drawer.open { right: 0; }
+    .drawer-close { position: absolute; top: 1.2rem; right: 1.2rem; background: none; border: 1px solid rgba(201,168,76,0.3); color: var(--gold); width: 36px; height: 36px; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; border-radius: 2px; z-index: 400; }
+    .drawer-nav { list-style: none; display: flex; flex-direction: column; }
+    .drawer-nav li a { display: block; padding: 1rem 0; font-size: 1rem; color: rgba(245,240,232,0.75); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 1px solid rgba(201,168,76,0.1); transition: color .2s; }
+    .drawer-nav li a:hover { color: var(--gold); }
+    .drawer-ctas { display: flex; flex-direction: column; gap: .8rem; margin-top: 2rem; }
+    .drawer-cta-primary { background: var(--gold); color: var(--forest); padding: .9rem 1.5rem; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; text-align: center; }
+    .drawer-cta-secondary { border: 1px solid rgba(201,168,76,0.35); color: var(--gold); padding: .9rem 1.5rem; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; text-align: center; }
+    .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 250; opacity: 0; pointer-events: none; transition: opacity .35s; }
+    .overlay.open { opacity: 1; pointer-events: all; }
+
+    /* PAGE HERO — VSPs: gold background, forest text. Totally distinct identity */
+    #page-hero { min-height: 72vh; background: var(--gold); display: flex; align-items: center; padding: 9rem 4rem 5rem; position: relative; overflow: hidden; }
+    .hero-lines { position: absolute; inset: 0; opacity: 0.08; background-image: repeating-linear-gradient(0deg, var(--forest) 0, var(--forest) 1px, transparent 0, transparent 60px); pointer-events: none; }
+    .hero-mark { position: absolute; right: -80px; top: 50%; transform: translateY(-50%); font-family: 'Cormorant Garamond', serif; font-size: 28rem; font-weight: 700; color: rgba(26,46,34,0.06); line-height: 1; pointer-events: none; letter-spacing: -0.05em; white-space: nowrap; }
+    .hero-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; width: 100%; }
+    .hero-breadcrumb { display: inline-flex; align-items: center; gap: .5rem; font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(26,46,34,0.55); margin-bottom: 1.5rem; }
+    .hero-breadcrumb a { color: var(--forest); text-decoration: none; font-weight: 600; }
+    .hero-left h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 300; line-height: 1.08; color: var(--forest); }
+    .hero-left h1 em { font-style: italic; }
+    .hero-sub { font-size: 1.05rem; color: rgba(26,46,34,0.72); line-height: 1.8; max-width: 480px; margin-top: 1.2rem; }
+    .hero-cta-row { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
+    .btn-hero-primary { background: var(--forest); color: var(--cream); padding: .9rem 2.2rem; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; display: inline-block; transition: background .2s; }
+    .btn-hero-primary:hover { background: var(--forest-light); }
+    .btn-hero-outline { border: 2px solid var(--forest); color: var(--forest); padding: .9rem 2.2rem; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; display: inline-block; transition: border-color .2s, background .2s, color .2s; }
+    .btn-hero-outline:hover { background: var(--forest); color: var(--cream); }
+    .hero-panel { background: var(--forest); padding: 2.5rem; }
+    .hero-panel h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; color: var(--cream); margin-bottom: 1.2rem; line-height: 1.3; }
+    .hero-panel h2 em { font-style: italic; color: var(--gold); }
+    .panel-list { list-style: none; display: flex; flex-direction: column; gap: .85rem; }
+    .panel-list li { font-size: 0.9rem; color: rgba(245,240,232,0.65); line-height: 1.6; display: flex; align-items: flex-start; gap: .7rem; }
+    .tick { width: 18px; height: 18px; flex-shrink: 0; background: var(--gold); color: var(--forest); display: flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: 700; margin-top: .15rem; aria-hidden: true; }
+
+    /* SECTION HELPERS */
+    section { padding: 6rem 4rem; }
+    .section-label { font-size: 0.82rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 500; display: inline-flex; align-items: center; gap: .6rem; margin-bottom: 1.5rem; }
+    .section-label::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
+    .section-label.dark { color: var(--forest); }
+    .section-label.dark::before { background: var(--forest); }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 3.5vw, 3.2rem); font-weight: 300; line-height: 1.15; color: var(--forest); }
+    .section-title em { font-style: italic; color: var(--gold); }
+    .section-body { font-size: 1rem; line-height: 1.8; color: var(--text-mid); }
+
+    /* QUOTE BAR */
+    .quote-bar { background: var(--forest); padding: 2.5rem 4rem; }
+    .quote-bar blockquote { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.15rem, 2.2vw, 1.6rem); font-weight: 300; font-style: italic; color: var(--cream); text-align: center; max-width: 780px; margin: 0 auto; line-height: 1.55; }
+    .quote-bar blockquote strong { font-weight: 700; color: var(--gold); }
+
+    /* OFFER — cream-warm */
+    #offer { background: var(--cream-warm); display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .offer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .offer-card { background: var(--white); padding: 1.8rem; border-bottom: 2px solid var(--gold); }
+    .o-icon { width: 36px; height: 36px; background: var(--gold); color: var(--forest); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; flex-shrink: 0; aria-hidden: true; }
+    .offer-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--forest); margin-bottom: .4rem; }
+    .offer-card p { font-size: 0.875rem; color: var(--text-light); line-height: 1.7; }
+    .placement-note { margin-top: 2rem; padding: 1.8rem 2rem; background: var(--forest); }
+    .placement-note h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 500; color: var(--cream); margin-bottom: .7rem; }
+    .placement-note p { font-size: 0.9rem; color: rgba(245,240,232,0.62); line-height: 1.75; }
+    .placement-note strong { color: var(--gold); }
+
+    /* DNA — forest */
+    #dna { background: var(--forest); text-align: center; }
+    #dna .section-label { justify-content: center; }
+    .dna-intro { font-size: 1rem; color: rgba(245,240,232,0.58); max-width: 520px; margin: 0 auto 3.5rem; line-height: 1.75; }
+    .dna-expanded { display: flex; flex-direction: column; max-width: 820px; margin: 0 auto 3rem; }
+    .dna-row { display: grid; grid-template-columns: 4rem 1fr; gap: 2rem; align-items: start; padding: 2rem 0; border-bottom: 1px solid rgba(201,168,76,0.1); transition: padding-left .3s; }
+    .dna-row:first-child { border-top: 1px solid rgba(201,168,76,0.1); }
+    .dna-row:hover { padding-left: .5rem; }
+    .dna-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: var(--gold); line-height: 1; padding-top: .1rem; aria-hidden: true; }
+    .dna-row h3 { font-size: 0.9rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cream); margin-bottom: .5rem; }
+    .dna-row p { font-size: 0.9rem; color: rgba(245,240,232,0.58); line-height: 1.75; }
+    .dna-disq { max-width: 680px; margin: 0 auto; padding: 2rem 2.5rem; border: 1px solid rgba(201,168,76,0.15); }
+    .dna-disq h3 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: rgba(245,240,232,0.5); text-align: center; margin-bottom: 1rem; }
+    .disq-tags { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
+    .disq-tag { font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; padding: .3rem .9rem; border: 1px solid rgba(201,168,76,0.2); color: rgba(245,240,232,0.42); border-radius: 1px; }
+
+    /* LOOKING — cream */
+    #looking { background: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .spec-list { list-style: none; display: flex; flex-direction: column; gap: 1.2rem; }
+    .spec-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.3rem 1.5rem; background: var(--cream-warm); border-left: 3px solid var(--gold); }
+    .spec-icon { width: 42px; height: 36px; background: var(--gold); color: var(--forest); font-family: 'Cormorant Garamond', serif; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.03em; display: flex; align-items: center; justify-content: center; flex-shrink: 0; aria-hidden: true; }
+    .spec-item strong { display: block; font-size: 0.9rem; font-weight: 600; color: var(--forest); margin-bottom: .3rem; }
+    .spec-item span { font-size: 0.875rem; color: var(--text-light); line-height: 1.6; }
+
+    /* PROCESS — cream-warm */
+    #process { background: var(--cream-warm); }
+    .process-header { max-width: 560px; margin-bottom: 4rem; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; border: 1px solid rgba(26,46,34,0.1); }
+    .step { background: var(--cream); padding: 2.5rem 2rem; position: relative; }
+    .step-n { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: rgba(26,46,34,0.07); line-height: 1; margin-bottom: .5rem; aria-hidden: true; }
+    .step h3 { font-size: 0.95rem; font-weight: 600; color: var(--forest); margin-bottom: .6rem; }
+    .step p { font-size: 0.875rem; color: var(--text-light); line-height: 1.7; }
+    .step-divider { position: absolute; top: 3rem; right: -1px; width: 2px; height: 32px; background: var(--gold); opacity: .4; aria-hidden: true; }
+    .process-note { margin-top: 1.5rem; padding: 1.5rem 2rem; background: rgba(201,168,76,0.1); border-left: 3px solid var(--gold); font-size: 0.9rem; color: var(--text-mid); line-height: 1.75; }
+    .review-note { margin-top: 1.5rem; padding: 2rem 2.5rem; background: var(--forest); }
+    .review-note h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 500; color: var(--cream); margin-bottom: .5rem; }
+    .review-note p { font-size: 0.9rem; color: rgba(245,240,232,0.58); line-height: 1.75; }
+
+    /* APPLY — Tally embed, forest-mid */
+    #apply { background: var(--forest-mid); padding: 6rem 4rem; border-top: 1px solid rgba(201,168,76,0.15); }
+    .apply-inner { max-width: 820px; margin: 0 auto; }
+    .apply-inner .section-label { justify-content: center; }
+    .apply-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: var(--cream); text-align: center; line-height: 1.15; margin-bottom: 1rem; }
+    .apply-title em { font-style: italic; color: var(--gold); }
+    .apply-sub { font-size: 1rem; color: rgba(245,240,232,0.55); text-align: center; line-height: 1.8; max-width: 520px; margin: 0 auto 2.5rem; }
+    .apply-caveat { font-size: 0.875rem; color: rgba(245,240,232,0.45); text-align: center; line-height: 1.75; max-width: 520px; margin: 0 auto 2.5rem; font-style: italic; border-top: 1px solid rgba(201,168,76,0.1); padding-top: 1.2rem; }
+    .apply-details { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .apply-detail { font-size: 0.82rem; color: rgba(245,240,232,0.35); letter-spacing: 0.05em; }
+    .tally-wrap { background: rgba(245,240,232,0.03); border: 1px solid rgba(201,168,76,0.15); padding: 2.5rem; }
+    .tally-wrap iframe { width: 100%; border: none; display: block; min-height: 500px; }
+
+    /* NEWSLETTER — cream */
+    #newsletter { background: var(--cream); padding: 5rem 4rem; border-top: 1px solid rgba(201,168,76,0.15); }
+    .newsletter-inner { max-width: 740px; margin: 0 auto; text-align: center; }
+    .newsletter-inner .section-label { justify-content: center; }
+    .nl-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 300; color: var(--forest); line-height: 1.15; margin-bottom: 1rem; }
+    .nl-title em { font-style: italic; color: var(--gold); }
+    .nl-sub { font-size: 1rem; color: var(--text-mid); line-height: 1.8; max-width: 480px; margin: 0 auto 2.5rem; }
+    .nl-tally { background: var(--cream-warm); border: 1px solid rgba(201,168,76,0.2); padding: 2rem; }
+    .nl-tally iframe { width: 100%; border: none; display: block; min-height: 180px; }
+
+    /* BOTTOM CTA */
+    #cta-bottom { background: var(--gold); text-align: center; padding: 5rem 4rem; position: relative; overflow: hidden; }
+    #cta-bottom::before { content: 'VETTED'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-family: 'Cormorant Garamond', serif; font-size: 18rem; font-weight: 700; color: rgba(26,46,34,0.05); white-space: nowrap; pointer-events: none; letter-spacing: -0.05em; aria-hidden: true; }
+    .cta-bottom-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; color: var(--forest); line-height: 1.15; margin-bottom: 1rem; position: relative; z-index: 2; }
+    .cta-bottom-title em { font-style: italic; }
+    .cta-bottom-body { font-size: 1rem; color: rgba(26,46,34,0.65); max-width: 460px; margin: 0 auto 2.5rem; line-height: 1.8; position: relative; z-index: 2; }
+    .cta-bottom-actions { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; position: relative; z-index: 2; }
+    .btn-forest { background: var(--forest); color: var(--cream); padding: .9rem 2.4rem; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 2px; display: inline-block; transition: background .2s; }
+    .btn-forest:hover { background: var(--forest-light); }
+    .btn-forest-outline { border: 2px solid var(--forest); color: var(--forest); padding: .9rem 2.4rem; font-size: 0.875rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; display: inline-block; transition: background .2s, color .2s; }
+    .btn-forest-outline:hover { background: var(--forest); color: var(--cream); }
+
+    /* FOOTER */
+    footer { background: #111d15; padding: 4rem; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; }
+    .f-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--cream); letter-spacing: 0.05em; display: block; margin-bottom: .25rem; }
+    .f-logo span { color: var(--gold); }
+    .f-full { font-size: 0.82rem; color: rgba(245,240,232,0.3); margin-bottom: 1rem; }
+    .footer-brand p { font-size: 0.875rem; color: rgba(245,240,232,0.45); line-height: 1.75; margin-bottom: 1.2rem; }
+    .footer-tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold); font-size: 1rem; margin-bottom: 1.5rem; display: block; }
+    .social-links { display: flex; gap: .6rem; flex-wrap: wrap; }
+    .social-link { width: 36px; height: 36px; border: 1px solid rgba(201,168,76,0.25); display: flex; align-items: center; justify-content: center; color: rgba(245,240,232,0.5); text-decoration: none; border-radius: 2px; transition: border-color .2s, color .2s, background .2s; }
+    .social-link svg { width: 16px; height: 16px; fill: currentColor; }
+    .social-link:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.08); }
+    footer h6 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(245,240,232,0.35); font-weight: 500; margin-bottom: 1.2rem; }
+    footer ul { list-style: none; display: flex; flex-direction: column; gap: .65rem; }
+    footer ul a { font-size: 0.875rem; color: rgba(245,240,232,0.55); text-decoration: none; transition: color .2s; }
+    footer ul a:hover { color: var(--gold); }
+    .footer-bottom { background: #0d1710; padding: 1.5rem 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom p { font-size: 0.82rem; color: rgba(245,240,232,0.25); letter-spacing: 0.04em; }
+
+    /* ANIMATIONS */
+    /* fade-up: content visible by default; animation only applies once JS marks html.js-ready */
+    .fade-up { transition: opacity .7s ease, transform .7s ease; }
+    html.js-ready .fade-up { opacity: 0; transform: translateY(28px); }
+    html.js-ready .fade-up.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { html.js-ready .fade-up { opacity: 1; transform: none; transition: none; } }
+
+    /* MOBILE */
+    @media (max-width: 960px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      #page-hero { padding: 7rem 1.5rem 4rem; min-height: auto; }
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-mark { display: none; }
+      section { padding: 4rem 1.5rem; }
+      #offer, #looking { grid-template-columns: 1fr; gap: 3rem; }
+      .offer-grid { grid-template-columns: 1fr 1fr; }
+      .dna-expanded { padding: 0; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      #apply { padding: 4rem 1.5rem; }
+      .tally-wrap { padding: 1.5rem 1rem; }
+      #newsletter { padding: 4rem 1.5rem; }
+      #cta-bottom { padding: 4rem 1.5rem; }
+      .quote-bar { padding: 2rem 1.5rem; }
+      footer { grid-template-columns: 1fr 1fr; padding: 3rem 1.5rem; }
+      .footer-bottom { flex-direction: column; text-align: center; padding: 1.5rem; }
+      .hero-cta-row { flex-direction: column; }
+      .dna-row { grid-template-columns: 3rem 1fr; gap: 1.2rem; }
+    }
+  </style>
+  <style>
+    /* JOBS PAGE SPECIFIC */
+    #page-hero { min-height: 58vh; background: var(--forest-mid); padding: 9rem 4rem 5rem; position: relative; overflow: hidden; display: flex; align-items: center; border-bottom: 3px solid var(--gold); }
+    .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(245,240,232,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(245,240,232,0.04) 1px, transparent 1px); background-size: 48px 48px; pointer-events: none; }
+    .hero-mark-bg { position: absolute; right: -40px; bottom: -20px; font-family: 'Cormorant Garamond', serif; font-size: 20rem; font-weight: 700; color: rgba(201,168,76,0.04); line-height: 1; pointer-events: none; white-space: nowrap; }
+    .page-hero-inner { position: relative; z-index: 2; max-width: 680px; }
+    .hero-breadcrumb { font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(245,240,232,0.4); margin-bottom: 1.5rem; display: flex; align-items: center; gap: .5rem; }
+    .hero-breadcrumb a { color: rgba(245,240,232,0.65); text-decoration: none; }
+    .hero-breadcrumb a:hover { color: var(--gold); }
+    .page-hero-inner h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 300; color: var(--cream); line-height: 1.08; }
+    .page-hero-inner h1 em { font-style: italic; color: var(--gold); }
+    .hero-sub { font-size: 1.05rem; color: rgba(245,240,232,0.62); line-height: 1.8; max-width: 560px; margin-top: 1.2rem; }
+    .hero-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; }
+    .btn-gold { background: var(--gold); color: var(--forest); padding: .9rem 2.2rem; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 2px; display: inline-block; transition: background .2s; }
+    .btn-gold:hover { background: var(--gold-light); }
+    .btn-outline-light { border: 2px solid rgba(201,168,76,0.4); color: var(--gold); padding: .9rem 2.2rem; font-size: 0.875rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; display: inline-block; transition: all .2s; }
+    .btn-outline-light:hover { background: var(--gold); color: var(--forest); border-color: var(--gold); }
+
+    /* NOTICE */
+    #notice { background: var(--cream-warm); padding: 3rem 4rem; border-bottom: 1px solid rgba(201,168,76,0.18); }
+    .notice-inner { max-width: 820px; display: grid; grid-template-columns: auto 1fr; gap: 1.8rem; align-items: start; }
+    .notice-icon { font-size: 1.6rem; padding-top: .15rem; }
+    .notice-inner h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 500; color: var(--forest); margin-bottom: .5rem; }
+    .notice-inner p { font-size: 0.95rem; color: var(--text-mid); line-height: 1.8; }
+    .notice-inner a { color: var(--forest); font-weight: 600; text-underline-offset: 3px; }
+    .notice-inner a:hover { color: var(--gold); }
+
+    /* ROLES */
+    #roles { background: var(--white); }
+    .roles-intro { max-width: 620px; margin-bottom: 4rem; }
+
+    /* ROLE CARD BASE */
+    .role-card { padding: 3rem; margin-bottom: 2rem; border: 1px solid rgba(26,46,34,0.1); }
+    .role-tags { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: 2rem; }
+    .rtag { font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; padding: .28rem .85rem; border-radius: 1px; font-weight: 500; }
+    .rtag.rt-type { background: var(--forest); color: var(--cream); }
+    .rtag.rt-loc { background: transparent; border: 1px solid rgba(26,46,34,0.22); color: var(--text-mid); }
+    .rtag.rt-exp { border: 1px solid rgba(201,168,76,0.5); color: var(--gold); background: transparent; }
+    .rtag.rt-ind { background: rgba(201,168,76,0.1); color: var(--forest); border: 1px solid rgba(201,168,76,0.28); }
+    .role-card h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 300; line-height: 1.1; color: var(--forest); margin-bottom: 1rem; }
+    .role-card h2 em { font-style: italic; color: var(--gold); }
+    .role-note { padding: 1rem 1.5rem; font-size: 0.875rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 1.8rem; }
+    .role-note strong { color: var(--forest); }
+    .note-scope { background: rgba(201,168,76,0.07); border-left: 3px solid var(--gold); }
+    .note-hybrid { background: rgba(26,46,34,0.04); border-left: 3px solid rgba(26,46,34,0.2); }
+    .role-desc { font-size: 1rem; line-height: 1.85; color: var(--text-mid); max-width: 680px; margin-bottom: 2rem; }
+    .role-section-title { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--forest); margin-bottom: .9rem; }
+    .req-list { list-style: none; display: flex; flex-direction: column; gap: .6rem; margin-bottom: 2rem; }
+    .req-list li { font-size: 0.9rem; color: var(--text-mid); display: flex; align-items: flex-start; gap: .7rem; line-height: 1.65; }
+    .req-list li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+    .tools-row { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 2rem; }
+    .tool-chip { font-size: 0.82rem; padding: .3rem .85rem; background: var(--cream-warm); color: var(--text-mid); border-radius: 1px; letter-spacing: 0.03em; }
+    .tool-chip.plus { border: 1px dashed rgba(201,168,76,0.4); background: transparent; color: var(--gold); }
+    .disq-box { padding: 1.4rem 1.8rem; margin-bottom: 2rem; border-left: 3px solid rgba(180,50,50,0.28); background: rgba(180,50,50,0.03); }
+    .disq-title { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(150,40,40,0.65); margin-bottom: .75rem; }
+    .disq-list { list-style: none; display: flex; flex-direction: column; gap: .45rem; }
+    .disq-list li { font-size: 0.875rem; color: var(--text-light); display: flex; align-items: flex-start; gap: .65rem; line-height: 1.6; }
+    .disq-list li::before { content: '✕'; color: rgba(180,50,50,0.45); flex-shrink: 0; font-size: 0.82rem; margin-top: .18rem; }
+    .comp-bar { display: inline-flex; align-items: baseline; gap: .5rem; padding: 1rem 1.8rem; margin-bottom: 1.5rem; background: var(--forest); }
+    .comp-label { font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(245,240,232,0.4); }
+    .comp-fig { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 300; color: var(--gold); line-height: 1; }
+    .comp-per { font-size: 0.82rem; color: rgba(245,240,232,0.4); }
+    .role-deadline { font-size: 0.82rem; color: var(--text-light); margin-bottom: 2rem; }
+    .role-deadline strong { color: var(--text-mid); }
+    .apply-btn { display: inline-block; background: var(--gold); color: var(--forest); padding: .9rem 2.4rem; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background .2s; }
+    .apply-btn:hover { background: var(--gold-light); }
+
+    /* ROLE CARD VARIANTS */
+    .role-fashion { background: var(--cream-warm); border-color: rgba(201,168,76,0.22); }
+    .role-arch { background: var(--white); border-color: rgba(26,46,34,0.1); border-left: 4px solid var(--forest-mid); }
+
+    /* GENERAL CTA NOTE */
+    .general-note { margin-top: 1.5rem; padding: 1.8rem 2.2rem; background: var(--forest); }
+    .general-note p { font-size: 0.9rem; color: rgba(245,240,232,0.6); line-height: 1.8; }
+    .general-note a { color: var(--gold); text-decoration: none; font-weight: 600; }
+
+    /* BOTTOM CTA */
+    #cta-bottom { background: var(--cream-warm); text-align: center; border-top: 1px solid rgba(201,168,76,0.18); }
+    .cta-b-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 300; color: var(--forest); line-height: 1.15; margin-bottom: 1rem; }
+    .cta-b-title em { font-style: italic; color: var(--gold); }
+    .cta-b-body { font-size: 1rem; color: var(--text-mid); max-width: 460px; margin: 0 auto 2.5rem; line-height: 1.8; }
+    .cta-b-actions { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
+    .btn-dark { background: var(--forest); color: var(--cream); padding: .9rem 2.4rem; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 2px; display: inline-block; transition: background .2s; }
+    .btn-dark:hover { background: var(--forest-light); }
+    .btn-dark-out { border: 2px solid var(--forest); color: var(--forest); padding: .9rem 2.4rem; font-size: 0.875rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; display: inline-block; transition: all .2s; }
+    .btn-dark-out:hover { background: var(--forest); color: var(--cream); }
+
+    @media (max-width: 960px) {
+      #page-hero { padding: 7rem 1.5rem 4rem; min-height: auto; }
+      .hero-mark-bg { display: none; }
+      #notice { padding: 2.5rem 1.5rem; }
+      .notice-inner { grid-template-columns: 1fr; gap: 1rem; }
+      .role-card { padding: 2rem 1.5rem; }
+    }</style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFC90V41GT"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CFC90V41GT');</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="overlay" id="overlay" aria-hidden="true"></div>
+
+<nav class="mobile-drawer" id="mobile-drawer" aria-label="Mobile navigation">
+  <button class="drawer-close" id="drawer-close" aria-label="Close menu">✕</button>
+  <ul class="drawer-nav" role="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="vsps.html">For VSPs</a></li>
+    <li><a href="clients.html">For Clients</a></li>
+    <li><a href="jobs.html">Open Roles</a></li>
+  </ul>
+  <div class="drawer-ctas">
+    <a class="drawer-cta-primary" href="vsps.html#apply">Get Vetted</a>
+    <a class="drawer-cta-secondary" href="clients.html#inquiry">I Need Support</a>
+  </div>
+</nav>
+
+<header>
+  <nav aria-label="Main navigation">
+    <a class="nav-logo" href="index.html"><span>ACE</span>-VSS</a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="vsps.html">For VSPs</a></li>
+      <li><a href="clients.html">For Clients</a></li>
+      <li><a href="jobs.html" aria-current="page">Open Roles</a></li>
+    </ul>
+    <a class="nav-cta" href="vsps.html#apply">Get Vetted</a>
+    <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+
+<main id="main-content">
+
+  <!-- HERO -->
+  <section id="page-hero" aria-labelledby="jobs-heading">
+    <div class="hero-grid-bg" aria-hidden="true"></div>
+    <div class="hero-mark-bg" aria-hidden="true">ROLES</div>
+    <div class="page-hero-inner fade-up">
+      <div class="hero-breadcrumb"><a href="index.html">ACE-VSS</a>&nbsp;/&nbsp;Open Roles</div>
+      <h1 id="jobs-heading">Real roles.<br/><em>Real clients.</em></h1>
+      <p class="hero-sub">Active, client-backed positions being coordinated through ACE Virtual Support Services. Read the requirements carefully — we filter early, on purpose.</p>
+      <div class="hero-cta-row">
+        <a class="btn-gold" href="#roles">View Open Roles</a>
+        <a class="btn-outline-light" href="vsps.html#apply">General Database →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTICE -->
+  <div id="notice" role="note">
+    <div class="notice-inner">
+      <div class="notice-icon" aria-hidden="true">📋</div>
+      <div>
+        <h2>Two routes. One standard.</h2>
+        <p>This page lists <strong>specific active roles</strong> being sourced for current clients. If you want to join the ACE-VSS database and be matched to future opportunities across all role types, <a href="vsps.html#apply">complete the general vetting form on the VSPs page</a>. You can do both — they are separate processes.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROLES -->
+  <section id="roles" aria-labelledby="roles-heading">
+    <div class="roles-intro fade-up">
+      <div class="section-label dark">Currently Open</div>
+      <h2 class="section-title" id="roles-heading">2 active <em>positions.</em></h2>
+      <p class="section-body" style="margin-top:1rem">All roles are sourced and coordinated through ACE Virtual Support Services. You will not deal directly with the client during the application process.</p>
+    </div>
+
+    <!-- ROLE 1: Marketing & Social Media Assistant -->
+    <article class="role-card role-fashion fade-up" aria-labelledby="role1-heading">
+      <div class="role-tags" aria-label="Role details">
+        <span class="rtag rt-type">ACE Match Standard</span>
+        <span class="rtag rt-loc">📍 Abuja — Hybrid</span>
+        <span class="rtag rt-exp">1–2 Years Experience</span>
+        <span class="rtag rt-ind">Fashion &amp; Lifestyle</span>
+      </div>
+      <h2 id="role1-heading">Marketing &amp; Social Media <em>Assistant</em></h2>
+      <div class="role-note note-hybrid" role="note"><strong>On hybrid:</strong> Primarily remote. Occasional in-person presence in Abuja may be required — this is not a regular fixture, but plan for it. You will be informed in advance.</div>
+      <p class="role-desc">A fashion brand needs an extra pair of hands for their marketing team. You will be supporting an existing marketing manager with day-to-day execution — client engagement across channels, social media support, and general marketing assistance. This is a support role. You are not running strategy — you are making sure execution is tight and consistent.</p>
+      <div>
+        <p class="role-section-title">What we're looking for</p>
+        <ul class="req-list" aria-label="Requirements">
+          <li>1–2 years of real, demonstrable social media or marketing experience — not internships you forgot about, actual work</li>
+          <li>Experience managing social media for a brand or business — personal pages do not count</li>
+          <li>Familiarity with fashion or lifestyle brands — it shows in the work if you genuinely care about the industry</li>
+          <li>Strong written communication — captions, responses, and copy all need to land correctly</li>
+          <li>Proactive communicator: "heads up, I need clarity on this" — not silence until deadline day</li>
+          <li>A laptop, reliable WiFi, and the self-discipline that remote work demands</li>
+        </ul>
+      </div>
+      <div>
+        <p class="role-section-title">Tools you should know</p>
+        <div class="tools-row" aria-label="Required tools">
+          <span class="tool-chip">Instagram</span>
+          <span class="tool-chip">TikTok</span>
+          <span class="tool-chip">Canva</span>
+          <span class="tool-chip">CapCut</span>
+          <span class="tool-chip">Google Workspace</span>
+          <span class="tool-chip">Buffer or Later</span>
+          <span class="tool-chip plus">Shopify (a plus)</span>
+        </div>
+      </div>
+      <div class="disq-box" role="note" aria-label="Disqualifying criteria">
+        <p class="disq-title">Stop here if any of these apply to you</p>
+        <ul class="disq-list">
+          <li>You are not based in Abuja</li>
+          <li>You have less than 1 year of professional social media or marketing experience</li>
+          <li>You have never managed social media for a brand or business</li>
+        </ul>
+      </div>
+      <div class="comp-bar" aria-label="Compensation">
+        <span class="comp-label">Compensation</span>
+        <span class="comp-fig">₦140,000</span>
+        <span class="comp-per">/ month</span>
+      </div>
+      <p class="role-deadline"><strong>Application deadline:</strong> Wednesday, 11 March 2026 &nbsp;·&nbsp; <strong>Resumption:</strong> First week of April 2026</p>
+      <a class="apply-btn" href="https://tally.so/r/ODAZLY" target="_blank" rel="noopener" aria-label="Apply for Marketing and Social Media Assistant role">Apply for This Role →</a>
+    </article>
+
+    <!-- ROLE 2: Business Support Assistant -->
+    <article class="role-card role-arch fade-up" aria-labelledby="role2-heading">
+      <div class="role-tags" aria-label="Role details">
+        <span class="rtag rt-type">ACE Micro</span>
+        <span class="rtag rt-loc">🌍 Remote</span>
+        <span class="rtag rt-exp">0–1 Year Experience</span>
+        <span class="rtag rt-ind">Architecture &amp; Design</span>
+      </div>
+      <h2 id="role2-heading">Business Support <em>Assistant</em></h2>
+      <div class="role-note note-scope" role="note"><strong>On the hours:</strong> This is a 5–8 hour per month engagement built around monthly deliverables. The scope changes from month to month but never exceeds what can reasonably be done in that window. This is supplementary work — not a path to full-time employment, and not structured as one.</div>
+      <p class="role-desc">An architect building a business needs organised, reliable support. Deliverables are agreed at the start of each month and may include lead generation, research, content calendar creation, file organisation, social media posting, or documentation. You manage your own time — you just hit the deadlines. All communication is async. You will be supervised and managed entirely through ACE Virtual Support Services, not directly by the client.</p>
+      <div>
+        <p class="role-section-title">What we're looking for</p>
+        <ul class="req-list" aria-label="Requirements">
+          <li>0–1 year of experience — this is an entry-level role, scoped and compensated accordingly</li>
+          <li>Comfortable in Google Sheets — formulas, sorting, basic formatting (not "I can figure it out")</li>
+          <li>Strong research instincts — knowing what to search for is most of the job</li>
+          <li>Interest in or familiarity with architecture, design, or the built environment</li>
+          <li>Communicates like a human: "I'm stuck on this, can we sort it?" — not radio silence for five days</li>
+          <li>A laptop and reliable WiFi — phone-only will not work for this role</li>
+          <li>Willing to commit to a minimum of 3 months — with potential to continue depending on client needs</li>
+        </ul>
+      </div>
+      <div>
+        <p class="role-section-title">Tools you should know</p>
+        <div class="tools-row" aria-label="Required tools">
+          <span class="tool-chip">Google Sheets</span>
+          <span class="tool-chip">Google Drive</span>
+          <span class="tool-chip">Canva</span>
+          <span class="tool-chip">Airtable</span>
+        </div>
+      </div>
+      <div class="disq-box" role="note" aria-label="Disqualifying criteria">
+        <p class="disq-title">Stop here if any of these apply to you</p>
+        <ul class="disq-list">
+          <li>You have more than 1 year of professional experience</li>
+          <li>You are not comfortable working independently in Google Sheets</li>
+          <li>You are hoping or expecting this role to grow into full-time work</li>
+        </ul>
+      </div>
+      <div class="comp-bar" aria-label="Compensation">
+        <span class="comp-label">Compensation</span>
+        <span class="comp-fig">₦50,000</span>
+        <span class="comp-per">/ month</span>
+      </div>
+      <p class="role-deadline"><strong>Application deadline:</strong> Wednesday, 11 March 2026 &nbsp;·&nbsp; <strong>Start date:</strong> To be confirmed</p>
+      <a class="apply-btn" href="https://tally.so/r/ODAZLY" target="_blank" rel="noopener" aria-label="Apply for Business Support Assistant role">Apply for This Role →</a>
+    </article>
+
+    <div class="general-note" role="note">
+      <p><strong>Not right for either role?</strong> These listings reflect active sourcing for current clients. Apply for general vetting through the <a href="vsps.html#apply">VSPs page</a> and you'll be considered for future placements as they come in.</p>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section id="cta-bottom" aria-labelledby="cta-bottom-heading">
+    <h2 class="cta-b-title" id="cta-bottom-heading">Want into the<br/><em>general database?</em></h2>
+    <p class="cta-b-body">Role-specific applications are separate from our general vetting process. To be considered for any future client match, complete the VSP database application.</p>
+    <div class="cta-b-actions">
+      <a class="btn-dark" href="vsps.html#apply">Get Vetted →</a>
+      <a class="btn-dark-out" href="clients.html">For Clients</a>
+    </div>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="footer-brand">
+    <span class="f-logo"><span>ACE</span>-VSS</span>
+    <div class="f-full">ACE Virtual Support Services</div>
+    <p>A curated talent intelligence platform connecting businesses with vetted virtual support professionals across Africa and globally.</p>
+    <span class="footer-tagline">Think. Delegate. We Execute.</span>
+    <div class="social-links" aria-label="Social media links">
+      <a class="social-link" href="https://www.instagram.com/ace_virtualss/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+      <a class="social-link" href="https://www.linkedin.com/company/acevirtualsupportservices" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a class="social-link" href="https://x.com/ACEVirtual_SS" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a class="social-link" href="https://web.facebook.com/ACEVirtualSupportServices" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      <a class="social-link" href="https://www.tiktok.com/@ace.virtual.suppo" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.17 8.17 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg></a>
+      <a class="social-link" href="https://www.youtube.com/@ACE-VSS" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+    </div>
+  </div>
+  <div><h6>For VSPs</h6><ul><li><a href="#offer">What We Offer</a></li><li><a href="#dna">The ACE DNA</a></li><li><a href="#looking">Specialisations</a></li><li><a href="#process">Vetting Process</a></li><li><a href="#apply">Get Vetted</a></li></ul></div>
+  <div><h6>Navigate</h6><ul><li><a href="index.html">Home</a></li><li><a href="clients.html">For Clients</a></li><li><a href="jobs.html">Open Roles</a></li></ul></div>
+  <div><h6>Connect</h6><ul><li><a href="/cdn-cgi/l/email-protection#7c14191010133c1d1f190a150e08091d100f090c0c130e080f190e0a151f190f521f1311"><span class="__cf_email__" data-cfemail="f79f929b9b98b7969492819e858382969b84828787988583849285819e949284d994989a">[email&#160;protected]</span></a></li><li><a href="#apply">Get Vetted</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul></div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 ACE Virtual Support Services. All rights reserved. Abuja, Nigeria 🇳🇬</p>
+  <p>Built on African excellence.</p>
+</div>
+
+
+
+<!-- HAMBURGER SCRIPT — must remain at very bottom of body, after all HTML -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  var hamburger = document.getElementById('hamburger');
+  var drawer = document.getElementById('mobile-drawer');
+  var overlay = document.getElementById('overlay');
+  var drawerClose = document.getElementById('drawer-close');
+  var isOpen = false;
+
+  function openDrawer() {
+    isOpen = true;
+    drawer.classList.add('open');
+    overlay.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    isOpen = false;
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', function(e) {
+    e.stopPropagation();
+    isOpen ? closeDrawer() : openDrawer();
+  });
+  drawerClose.addEventListener('click', function(e) {
+    e.stopPropagation();
+    closeDrawer();
+  });
+  overlay.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && isOpen) closeDrawer();
+  });
+  drawer.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', closeDrawer);
+  });
+
+  // Progressive enhancement: mark page as JS-ready, then run fade-up observer
+  document.documentElement.classList.add('js-ready');
+  var faders = document.querySelectorAll('.fade-up');
+  var obs = new IntersectionObserver(
