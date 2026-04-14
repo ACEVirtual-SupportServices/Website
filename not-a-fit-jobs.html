@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Not the Right Fit — ACE-VSS</title>
+    <meta name="robots" content="noindex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/not-a-fit.css" />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CFC90V41GT"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-CFC90V41GT");
+    </script>
+  </head>
+  <body>
+    <div class="overlay" id="overlay" aria-hidden="true"></div>
+
+    <nav
+      class="mobile-drawer"
+      id="mobile-drawer"
+      aria-label="Mobile navigation"
+    >
+      <button class="drawer-close" id="drawer-close" aria-label="Close menu">
+        ✕
+      </button>
+      <ul class="drawer-nav" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="clients.html">For Clients</a></li>
+        <li><a href="vsps.html">For VSPs</a></li>
+        <li><a href="jobs.html">Open Roles</a></li>
+      </ul>
+      <div class="drawer-ctas">
+        <a class="drawer-cta-primary" href="vsps.html#apply">Get Vetted</a>
+        <a class="drawer-cta-secondary" href="jobs.html">Open Roles</a>
+      </div>
+    </nav>
+
+    <header>
+      <nav aria-label="Main navigation">
+        <a class="nav-logo" href="index.html"><span>ACE</span>-VSS</a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="clients.html">For Clients</a></li>
+          <li><a href="vsps.html">For VSPs</a></li>
+          <li><a href="jobs.html">Open Roles</a></li>
+        </ul>
+        <a class="nav-cta" href="vsps.html#apply">Get Vetted</a>
+        <button
+          class="hamburger"
+          id="hamburger"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-drawer"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <div class="naf-wrap">
+        <div class="naf-label">This Role Isn't For You</div>
+        <h1 class="naf-heading">
+          Not every role<br />fits every <em>person.</em>
+        </h1>
+        <p class="naf-body">
+          Based on the requirements for this specific position, it doesn't look
+          like a match right now. That's not a judgment on your ability — it
+          means the scope, location, or experience level isn't aligned with
+          where you are today.
+        </p>
+        <div class="naf-redirect" role="note">
+          <h3>But this might still be the start of something</h3>
+          <p>
+            If you're a skilled professional looking to work with quality
+            clients — the ACE-VSS database might be the right next step. We vet
+            on an ongoing basis, and
+            <a href="vsps.html#apply">the general application is always open</a
+            >. The right placement comes when the right client exists for your
+            profile.
+          </p>
+        </div>
+        <div class="naf-actions">
+          <a class="btn-forest" href="vsps.html#apply">Apply to the Database</a>
+          <a class="btn-outline-forest" href="jobs.html">View All Roles</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="naf-footer">
+      <a class="naf-footer-logo" href="index.html"><span>ACE</span>-VSS</a>
+      <p>© 2026 ACE Virtual Support Services · Think. Delegate. We Execute.</p>
+    </footer>
+
+    <script src="js/not-a-fit.js"></script>
+  </body>
+</html>
