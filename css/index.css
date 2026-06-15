@@ -1,3 +1,22 @@
+/* ===== COMING SOON OVERLAY — remove this block to go live ===== */
+body::before {
+  content: "Coming Soon";
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: var(--forest);
+  color: var(--cream);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* ===== END COMING SOON ===== */
+
 :root {
   --forest: #1a2e22;
   --forest-mid: #243b2d;
