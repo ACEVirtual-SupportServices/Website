@@ -1,19 +1,30 @@
-/* ===== COMING SOON OVERLAY — remove this block to go live ===== */
+html,body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden !important;
+}
 body::before {
   content: "Coming Soon";
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  /* inset: 0; */
   z-index: 99999;
   background: var(--forest);
   color: var(--cream);
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(2.5rem, 8vw, 5rem);
   font-weight: 300;
   font-style: italic;
   letter-spacing: 0.05em;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
 }
 /* ===== END COMING SOON ===== */
 
