@@ -1,9 +1,9 @@
-html,body {
+/* html,body {
   height: 100%;
   margin: 0;
   overflow: hidden !important;
-}
-body::before {
+} */
+/* body::before {
   content: "Coming Soon";
   position: fixed;
   top: 0;
@@ -12,7 +12,7 @@ body::before {
   height: 100vh;
   height: 100dvh;
   /* inset: 0; */
-  z-index: 99999;
+  /* z-index: 99999;
   background: var(--forest);
   color: var(--cream);
   font-family: "Cormorant Garamond", serif;
@@ -24,8 +24,8 @@ body::before {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 1.5rem;
-}
+  padding: 1.5rem; */
+/* } */
 /* ===== END COMING SOON ===== */
 
 :root {
