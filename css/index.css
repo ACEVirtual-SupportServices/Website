@@ -1,40 +1,10 @@
-/* html,body {
-  height: 100%;
-  margin: 0;
-  overflow: hidden !important;
-} */
-/* body::before {
-  content: "Coming Soon";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  height: 100dvh;
-  /* inset: 0; */
-  /* z-index: 99999;
-  background: var(--forest);
-  color: var(--cream);
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  font-weight: 300;
-  font-style: italic;
-  letter-spacing: 0.05em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1.5rem; */
-/* } */
-/* ===== END COMING SOON ===== */
-
 :root {
-  --forest: #1a2e22;
-  --forest-mid: #243b2d;
-  --forest-light: #2f4d3a;
+  --forest: #3c3c3b;
+  --forest-mid: #473f35;
+  --forest-light: #3c3c3b;
   --cream: #f5f0e8;
   --cream-warm: #ede6d8;
-  --gold: #c9a84c;
+  --gold: #e3a575;
   --gold-light: #e0c278;
   --sage: #7a9e87;
   --text: #1a1a1a;
@@ -108,7 +78,10 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(26, 46, 34, 0.98);
+  /* NOTE: no background-color is set here, so backdrop-filter is blurring
+     whatever sits behind it (currently the dark hero). If nav is ever
+     placed over light content, it will look nearly invisible — worth
+     deciding intentionally rather than leaving unset. */
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(201, 168, 76, 0.2);
 }
@@ -367,7 +340,8 @@ nav {
   font-size: 1.35rem;
   font-style: italic;
   font-weight: 300;
-  color: var(--sage);
+  /* color: var(--sage); */
+  color: var(--gold);
   margin: 1.2rem 0 1.5rem;
 }
 .hero-body {
@@ -991,7 +965,7 @@ section {
 
 /* FOOTER */
 footer {
-  background: #111d15;
+  background: var(--forest-mid);
   padding: 4rem;
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1fr;
@@ -1082,7 +1056,7 @@ footer ul a:hover {
   color: var(--gold);
 }
 .footer-bottom {
-  background: #0d1710;
+  background: var(--forest-mid);
   padding: 1.5rem 4rem;
   display: flex;
   justify-content: space-between;
@@ -1102,6 +1076,9 @@ footer ul a:hover {
   transition:
     opacity 0.7s ease,
     transform 0.7s ease;
+}
+.mission-statement {
+    color: var(--cream-warm);
 }
 html.js-ready .fade-up {
   opacity: 0;
@@ -1171,6 +1148,7 @@ html.js-ready .fade-up.visible {
     flex-direction: column;
     text-align: center;
     padding: 1.5rem;
+    background: var(--forest-mid);
   }
   .dna-item {
     grid-template-columns: 3rem 1fr;

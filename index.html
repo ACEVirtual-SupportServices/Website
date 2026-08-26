@@ -93,7 +93,7 @@
       <span class="ticker-item">Compatibility Matching</span><span class="ticker-item ticker-dot">✦</span>
       <span class="ticker-item">Curated Database</span><span class="ticker-item ticker-dot">✦</span>
       <span class="ticker-item">Africa-Based Talent</span><span class="ticker-item ticker-dot">✦</span>
-      <span class="ticker-item">VSPs Keep 100% of Earnings</span><span class="ticker-item ticker-dot">✦</span>
+      <span class="ticker-item">Your agreed compensation is yours in full</span><span class="ticker-item ticker-dot">✦</span>
       <span class="ticker-item">Transparent Billing</span><span class="ticker-item ticker-dot">✦</span>
       <span class="ticker-item">Neurodivergent-Aware Vetting</span><span class="ticker-item ticker-dot">✦</span>
       <span class="ticker-item">Replacement Guarantee</span><span class="ticker-item ticker-dot">✦</span>
@@ -102,7 +102,7 @@
       <span class="ticker-item">Compatibility Matching</span><span class="ticker-item ticker-dot">✦</span>
       <span class="ticker-item">Curated Database</span><span class="ticker-item ticker-dot">✦</span>
       <span class="ticker-item">Africa-Based Talent</span><span class="ticker-item ticker-dot">✦</span>
-      <span class="ticker-item">VSPs Keep 100% of Earnings</span><span class="ticker-item ticker-dot">✦</span>
+      <span class="ticker-item">Your agreed compensation is yours in full</span><span class="ticker-item ticker-dot">✦</span>
       <span class="ticker-item">Transparent Billing</span><span class="ticker-item ticker-dot">✦</span>
       <span class="ticker-item">Neurodivergent-Aware Vetting</span><span class="ticker-item ticker-dot">✦</span>
       <span class="ticker-item">Replacement Guarantee</span><span class="ticker-item ticker-dot">✦</span>
@@ -114,7 +114,7 @@
   <section id="what" aria-labelledby="what-heading">
     <div class="fade-up">
       <div class="section-label dark">What ACE-VSS Is</div>
-      <h2 class="section-title" id="what-heading">A talent intelligence<br/>platform — <em>not an agency.</em></h2>
+      <h2 class="section-title" id="what-heading">A talent intelligence<br/><em>platform — not an agency.</em></h2>
       <p class="section-body" style="margin-top:1rem">ACE-VSS is not a marketplace where you browse and hope. We are a talent intelligence platform that does the work of finding the right match — assessing every professional in our database before they are ever placed in front of a client.</p>
     </div>
     <div class="ace-cards fade-up" role="list">
@@ -352,4 +352,29 @@
   // Progressive enhancement: mark page as JS-ready, then run fade-up observer
   document.documentElement.classList.add('js-ready');
   var faders = document.querySelectorAll('.fade-up');
-  var obs = new IntersectionObserver(
+
+  if ('IntersectionObserver' in window && faders.length) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -60px 0px'
+    });
+
+    faders.forEach(function (el) {
+      obs.observe(el);
+    });
+  } else {
+    // No IntersectionObserver support (or nothing to animate) — just show everything
+    faders.forEach(function (el) {
+      el.classList.add('visible');
+    });
+  }
+</script>
+</body>
+</html>
