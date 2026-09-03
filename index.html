@@ -7,12 +7,14 @@
   <meta name="description" content="ACE Virtual Support Services connects growing businesses with vetted, compatibility-matched virtual support professionals across Africa and globally."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/index.css">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFC90V41GT"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CFC90V41GT');</script>
+  <script src="js/index.js"></script>
 </head>
 <body>
 
@@ -38,7 +40,10 @@
 
 <header>
   <nav aria-label="Main navigation">
-    <a class="nav-logo" href="index.html" aria-current="page"><span>ACE</span>-VSS</a>
+    <!-- <a class="nav-logo" href="index.html" aria-current="page"><span>ACE</span>-VSS</a> -->
+    <a class="nav-logo" href="index.html" aria-current="page">
+      <img src="Logos/SVG/ace-vss-wordmark-peach.svg" alt="ACE Virtual Support Services" height="30">
+    </a>
     <ul class="nav-links" role="list">
       <li><a href="#what">About</a></li>
       <li><a href="#values">Our Values</a></li>
@@ -93,7 +98,7 @@
       <span class="ticker-item">Compatibility Matching</span><span class="ticker-item ticker-dot">✦</span>
       <span class="ticker-item">Curated Database</span><span class="ticker-item ticker-dot">✦</span>
       <span class="ticker-item">Africa-Based Talent</span><span class="ticker-item ticker-dot">✦</span>
-      <span class="ticker-item">VSPs Keep 100% of Earnings</span><span class="ticker-item ticker-dot">✦</span>
+      <span class="ticker-item">Your agreed compensation is yours in full</span><span class="ticker-item ticker-dot">✦</span>
       <span class="ticker-item">Transparent Billing</span><span class="ticker-item ticker-dot">✦</span>
       <span class="ticker-item">Neurodivergent-Aware Vetting</span><span class="ticker-item ticker-dot">✦</span>
       <span class="ticker-item">Replacement Guarantee</span><span class="ticker-item ticker-dot">✦</span>
@@ -102,7 +107,7 @@
       <span class="ticker-item">Compatibility Matching</span><span class="ticker-item ticker-dot">✦</span>
       <span class="ticker-item">Curated Database</span><span class="ticker-item ticker-dot">✦</span>
       <span class="ticker-item">Africa-Based Talent</span><span class="ticker-item ticker-dot">✦</span>
-      <span class="ticker-item">VSPs Keep 100% of Earnings</span><span class="ticker-item ticker-dot">✦</span>
+      <span class="ticker-item">Your agreed compensation is yours in full</span><span class="ticker-item ticker-dot">✦</span>
       <span class="ticker-item">Transparent Billing</span><span class="ticker-item ticker-dot">✦</span>
       <span class="ticker-item">Neurodivergent-Aware Vetting</span><span class="ticker-item ticker-dot">✦</span>
       <span class="ticker-item">Replacement Guarantee</span><span class="ticker-item ticker-dot">✦</span>
@@ -114,7 +119,7 @@
   <section id="what" aria-labelledby="what-heading">
     <div class="fade-up">
       <div class="section-label dark">What ACE-VSS Is</div>
-      <h2 class="section-title" id="what-heading">A talent intelligence<br/>platform — <em>not an agency.</em></h2>
+      <h2 class="section-title" id="what-heading">A talent intelligence<br/><em>platform — not an agency.</em></h2>
       <p class="section-body" style="margin-top:1rem">ACE-VSS is not a marketplace where you browse and hope. We are a talent intelligence platform that does the work of finding the right match — assessing every professional in our database before they are ever placed in front of a client.</p>
     </div>
     <div class="ace-cards fade-up" role="list">
@@ -128,7 +133,7 @@
       </div>
       <div class="ace-card" role="listitem">
         <h3><span class="acronym">E</span> — Ethical</h3>
-        <p>VSPs keep 100% of their agreed compensation. ACE-VSS earns only from client-side fees. Transparent billing. No hidden structures. Ever.</p>
+        <p>Your agreed compensation is yours in full. ACE-VSS earns from the businesses we serve. Transparent billing. No hidden structures. Ever.</p>
       </div>
     </div>
   </section>
@@ -262,7 +267,10 @@
 
 <footer role="contentinfo">
   <div class="footer-brand">
-    <a class="f-logo" href="index.html"><span>ACE</span>-VSS</a>
+    <!-- <a class="f-logo" href="index.html"><span>ACE</span>-VSS</a> -->
+    <a class="f-logo" href="index.html">
+      <img src="Logos/SVG/ace-vss-wordmark-peach.svg" alt="ACE Virtual Support Services" height="24">
+    </a>
     <div class="f-full">ACE Virtual Support Services</div>
     <p>A curated talent intelligence platform connecting businesses with vetted virtual support professionals.</p>
     <span class="footer-tagline">Think. Delegate. We Execute.</span>
@@ -310,46 +318,5 @@
 
 <!-- HAMBURGER SCRIPT — must remain at very bottom of body, after all HTML -->
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<script>
-  var hamburger = document.getElementById('hamburger');
-  var drawer = document.getElementById('mobile-drawer');
-  var overlay = document.getElementById('overlay');
-  var drawerClose = document.getElementById('drawer-close');
-  var isOpen = false;
-
-  function openDrawer() {
-    isOpen = true;
-    drawer.classList.add('open');
-    overlay.classList.add('open');
-    hamburger.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeDrawer() {
-    isOpen = false;
-    drawer.classList.remove('open');
-    overlay.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
-
-  hamburger.addEventListener('click', function(e) {
-    e.stopPropagation();
-    isOpen ? closeDrawer() : openDrawer();
-  });
-  drawerClose.addEventListener('click', function(e) {
-    e.stopPropagation();
-    closeDrawer();
-  });
-  overlay.addEventListener('click', closeDrawer);
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && isOpen) closeDrawer();
-  });
-  drawer.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', closeDrawer);
-  });
-
-  // Progressive enhancement: mark page as JS-ready, then run fade-up observer
-  document.documentElement.classList.add('js-ready');
-  var faders = document.querySelectorAll('.fade-up');
-  var obs = new IntersectionObserver(
+</body>
+</html>
