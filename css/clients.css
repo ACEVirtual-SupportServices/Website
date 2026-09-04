@@ -155,6 +155,87 @@ section {
   color: var(--charcoal);
 }
 
+/* SCOPE SESSION — primary conversion point: situational router + scope panel */
+#scope-session {
+  background: var(--cream);
+}
+.situation-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 2rem 0 3rem;
+  max-width: 720px;
+}
+.situation-list a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.4rem;
+  background: var(--sand);
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: border-color 0.2s, background 0.2s;
+}
+.situation-list a:hover,
+.situation-list a[aria-current="location"] {
+  border-left-color: var(--peach);
+  background: #ffffff;
+}
+.situation-you {
+  flex: 1;
+  font-size: 0.95rem;
+  color: var(--charcoal);
+}
+.situation-arrow {
+  color: var(--peach);
+  font-weight: 600;
+}
+.situation-label {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brown);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.scope-panel {
+  background: var(--charcoal);
+  padding: 2.8rem;
+  max-width: 720px;
+}
+.scope-panel p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(245, 240, 232, 0.7);
+  margin-bottom: 1rem;
+}
+.scope-panel p:last-of-type {
+  margin-bottom: 1.8rem;
+}
+.scope-fee-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid rgba(227, 165, 117, 0.2);
+}
+.scope-fee .from {
+  display: block;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(245, 240, 232, 0.45);
+}
+.scope-fee .amount {
+  font-family: "Kelvinch", serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--peach);
+}
+
 /* SERVICES */
 #services {
   background: #ffffff;
@@ -302,8 +383,12 @@ section {
 }
 .diff-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.2rem;
+}
+
+.diff-card {
+  min-width: 0;
 }
 .diff-card {
   padding: 1.6rem;
@@ -329,6 +414,7 @@ section {
   font-weight: 600;
   color: var(--cream);
   margin-bottom: 0.4rem;
+  overflow-wrap: anywhere;
 }
 .diff-card p {
   font-size: 0.875rem;
@@ -722,5 +808,15 @@ section {
   }
   .hero-cta-row {
     flex-direction: column;
+  }
+  .scope-panel {
+    padding: 1.8rem;
+  }
+  .situation-list a {
+    flex-wrap: wrap;
+  }
+  .scope-fee-row {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

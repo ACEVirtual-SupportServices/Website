@@ -3,16 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>For Clients — ACE Virtual Support Services</title>
+    <title>For Clients, ACE Virtual Support Services</title>
     <meta
       name="description"
-      content="Find vetted, compatibility-matched virtual support professionals for your business. ACE Micro, ACE Match Standard, and ACE Manage."
+      content="Find vetted, compatibility-matched virtual support professionals for your business. ACE Micro, ACE Match, and ACE Manage."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
-
-    <link rel="stylesheet" href="css/base.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/clients.css" />
     <!-- Google tag (gtag.js) -->
     <script
@@ -62,9 +64,12 @@
 
     <header>
       <nav aria-label="Main navigation">
-        <!-- <a class="nav-logo" href="index.html"><span>ACE</span>-VSS</a> -->
-        <a class="nav-logo" href="index.html" aria-current="page">
-          <img src="Logos/SVG/ace-vss-wordmark-peach.svg" alt="ACE Virtual Support Services" height="30">
+        <a class="nav-logo" href="index.html">
+          <img
+            src="Logos/SVG/ace-vss-wordmark-peach.svg"
+            alt="ACE Virtual Support Services"
+            height="26"
+          />
         </a>
         <ul class="nav-links" role="list">
           <li><a href="index.html">Home</a></li>
@@ -101,14 +106,78 @@
           </h1>
           <p class="page-hero-sub">
             You need more than someone who can do the job. You need someone who
-            fits how you work. ACE Virtual Support Services builds that match —
-            deliberately, thoroughly, and with your operational reality in mind.
+            fits how you work. ACE Virtual Support Services builds that match deliberately, thoroughly, and with your operational reality in mind.
           </p>
           <div class="hero-cta-row">
             <a class="btn-hero-primary" href="#inquiry"
               >Start a Client Inquiry</a
             >
             <a class="btn-hero-outline" href="#services">View Services</a>
+          </div>
+        </div>
+      </section>
+      
+      <!-- SCOPE SESSION — primary conversion point; routes visitors by situation rather than product name, per the update brief -->
+      <section id="scope-session" aria-labelledby="scope-heading">
+        <div class="fade-up">
+          <div class="section-label dark">Not Sure Where to Start?</div>
+          <h2 class="section-title" id="scope-heading">
+            Start with a <em>scope session.</em>
+          </h2>
+          <p class="section-body" style="margin-top: 1rem; max-width: 640px">
+            Tell us what you think you need, or start here if you are not
+            sure yet.
+          </p>
+        </div>
+        <ul class="situation-list fade-up" aria-label="Find the right starting point">
+          <li>
+            <a href="#micro">
+              <span class="situation-you">I need tasks done each month</span>
+              <span class="situation-arrow" aria-hidden="true">→</span>
+              <span class="situation-label">ACE Micro</span>
+            </a>
+          </li>
+          <li>
+            <a href="#match">
+              <span class="situation-you">I need my own dedicated person</span>
+              <span class="situation-arrow" aria-hidden="true">→</span>
+              <span class="situation-label">ACE Match</span>
+            </a>
+          </li>
+          <li>
+            <a href="#manage">
+              <span class="situation-you">I need my own person, and I do not want to manage them</span>
+              <span class="situation-arrow" aria-hidden="true">→</span>
+              <span class="situation-label">ACE Match + ACE Manage</span>
+            </a>
+          </li>
+          <li>
+            <a href="#scope-session" aria-current="location">
+              <span class="situation-you">I do not know what I need</span>
+              <span class="situation-arrow" aria-hidden="true">→</span>
+              <span class="situation-label">Start here</span>
+            </a>
+          </li>
+        </ul>
+        <div class="scope-panel fade-up">
+          <p>You know you need help. You are less sure what to hand over, or to whom.</p>
+          <p>
+            That is what the scope session is for. In an hour we work out what
+            should come off your plate, what a professional would own, and what
+            kind of engagement actually fits. You leave with a written scope
+            document, whether or not you work with us.
+          </p>
+          <p>The fee is credited in full against your first invoice if you go ahead.</p>
+          <div class="scope-fee-row">
+            <div class="scope-fee">
+              <span class="from">Scope session fee</span>
+              <!-- TODO(dev): provisional figure, may change. Confirm final
+                   figure against Pricing Reference v3 before launch. -->
+              <span class="amount">$100</span>
+            </div>
+            <!-- TODO(dev): placeholder link — replace with the real fit
+                 call booking link once available. -->
+            <a class="btn-hero-primary" href="#">Book Your Free Fit Call</a>
           </div>
         </div>
       </section>
@@ -122,7 +191,7 @@
           </h2>
           <p class="section-body" style="margin-top: 1rem">
             Every ACE-VSS service tier starts with understanding what you
-            actually need — not just your task list, but how you work, how you
+            actually need, not just your task list, but how you work, how you
             communicate, and what success looks like for your business.
           </p>
         </div>
@@ -132,7 +201,7 @@
             <h3>Managed <em>Deliverables</em></h3>
             <p class="svc-desc">
               You brief us. We handle everything else. Your VSP works in the
-              background — you only interact with us, and you only see results.
+              background, you only interact with us, and you only see results.
             </p>
             <button
               class="svc-toggle"
@@ -147,13 +216,13 @@
             </button>
             <div class="svc-features-acc" id="micro-features" role="region">
               <ul class="svc-features" aria-label="ACE Micro features">
-                <li>Full VSP management — no supervision required from you</li>
+                <li>Full VSP management, no supervision required from you</li>
                 <li>3-month minimum commitment</li>
                 <li>Up to 8 hours of VSP work per month</li>
                 <li>Additional hours billed at an agreed hourly rate</li>
                 <li>
-                  Invoice shows two clear lines: VSP compensation + ACE service
-                  fee
+                  Our fees are charged to you, never taken from your VSP's
+                  compensation
                 </li>
               </ul>
             </div>
@@ -164,7 +233,7 @@
             </div>
           </article>
           <article class="svc-card featured fade-up" role="listitem">
-            <div class="svc-badge">ACE Match Standard</div>
+            <div class="svc-badge">ACE Match</div>
             <h3>Talent <em>Placement</em></h3>
             <p class="svc-desc">
               We find your person. Through a structured discovery process, we
@@ -183,23 +252,24 @@
               ></span>
             </button>
             <div class="svc-features-acc" id="standard-features" role="region">
-              <ul class="svc-features" aria-label="ACE Match Standard features">
+              <ul class="svc-features" aria-label="ACE Match features">
                 <li>
                   Needs discovery → compatibility shortlist of 3 candidates
                 </li>
                 <li>Two-week placement timeline</li>
-                <li>Free replacement within the first two weeks</li>
+                <li>30-day replacement guarantee</li>
                 <li>
-                  Matched beyond the CV — work style, industry fit, capacity
+                  Matched beyond the CV work style, industry fit, capacity
                 </li>
                 <li>ACE Manage available as an optional ongoing layer</li>
               </ul>
             </div>
             <div class="svc-price">
-              <div class="from">Sourcing fee from</div>
-              <div class="amount">₦30,000</div>
+              <div class="from">Sourcing fee</div>
+              <div class="amount">30% of first month</div>
               <div class="note">
-                Final fee reflects role complexity — discussed at intake
+                Minimum $100 equivalent · final figure quoted after your
+                intake consultation
               </div>
             </div>
           </article>
@@ -232,13 +302,13 @@
                 </li>
                 <li>Issue escalation and mediation as needed</li>
                 <li>
-                  Compulsory for all international ACE Match Standard clients
+                  Compulsory for all international ACE Match clients
                 </li>
                 <li>Optional for Nigeria-based ACE Match clients</li>
               </ul>
             </div>
             <div class="svc-price">
-              <div class="from">Add-on to ACE Match Standard</div>
+              <div class="from">Add-on to ACE Match</div>
               <div class="amount">Monthly Retainer</div>
               <div class="note">Rate discussed at intake based on scope</div>
             </div>
@@ -249,7 +319,7 @@
           starting points. Final pricing reflects role complexity, VSP
           experience level, service tier, and whether you're based in Nigeria or
           operating internationally. Everything is discussed transparently at
-          the intake call — no surprises.
+          the intake call, no surprises.
         </div>
       </section>
 
@@ -276,16 +346,14 @@
             style="color: rgba(245, 240, 232, 0.65); margin-top: 1rem"
           >
             Most platforms give you access. We give you a match. Our database is
-            curated and closed — every VSP has been assessed, scored, and
+            curated and closed. Every VSP has been assessed, scored, and
             approved before they're ever placed with a client.
           </p>
           <p
             class="section-body"
             style="color: rgba(245, 240, 232, 0.65); margin-top: 1rem"
           >
-            We believe the people doing the work deserve to be paid fairly.
-            Client fees and VSP compensation are always handled as separate,
-            transparent line items.
+            Our fees are charged to you, never taken from your VSP's compensation.
           </p>
         </div>
         <div class="diff-grid fade-up">
@@ -293,7 +361,7 @@
             <span class="diff-initial" aria-hidden="true">C</span>
             <h3>Compatibility Matching</h3>
             <p>
-              Five layers deep — skills, personality, work style, industry fit,
+              Five layers deep; skills, personality, work style, industry fit,
               and capacity. Not just the first available person.
             </p>
           </div>
@@ -309,16 +377,15 @@
             <span class="diff-initial" aria-hidden="true">T</span>
             <h3>Transparent Billing</h3>
             <p>
-              Your invoice always shows two clear lines: VSP compensation and
-              ACE-VSS service fee. No hidden structures.
+              Our fees are charged to you, never taken from your VSP's
+              compensation.
             </p>
           </div>
           <div class="diff-card">
             <span class="diff-initial" aria-hidden="true">R</span>
             <h3>Replacement Guarantee</h3>
             <p>
-              Not the right fit? Free replacement within the first two weeks —
-              no questions, no extra fees.
+              Not the right fit? Free 30-day replacement guarantee, no questions, no extra fees.
             </p>
           </div>
           <div class="diff-card">
@@ -349,7 +416,7 @@
           </h2>
           <p class="section-body" style="margin-top: 1rem">
             Our placement process is structured, transparent, and built around
-            finding the right fit — not the fastest one.
+            finding the right fit, not the fastest one.
           </p>
         </div>
         <div class="steps-accordion fade-up" role="list">
@@ -418,7 +485,7 @@
               <div class="step-acc-body-inner">
                 <p>
                   We search our curated database and shortlist three candidates
-                  matched on skills, personality, work style, and capacity — not
+                  matched on skills, personality, work style, and capacity, not
                   just availability.
                 </p>
               </div>
@@ -455,7 +522,7 @@
             <h3>About the Founder Discovery Call</h3>
             <p>
               This call is the core of what makes ACE-VSS different. We assess
-              your needs in detail — how you work, how you communicate under
+              your needs in detail; how you work, how you communicate under
               pressure, and what hasn't worked in past working relationships.
               Not every inquiry leads to a placement, and that's by design.
             </p>
@@ -486,7 +553,7 @@
           <h3>High-Touch includes everything Standard does, <em>plus:</em></h3>
           <ul class="ht-list">
             <li>
-              Async-first communication structures — no forced real-time contact
+              Async-first communication structures, no forced real-time contact
             </li>
             <li>Weekly check-ins rather than bi-weekly</li>
             <li>Extended response windows built into the working agreement</li>
@@ -535,7 +602,7 @@
           </h2>
           <p class="nl-sub">
             Practical insights for founders and business owners who delegate
-            with intention — delivered monthly.
+            with intention, delivered monthly.
           </p>
           <div class="nl-tally fade-up">
             <iframe
@@ -562,7 +629,7 @@
         </h2>
         <p class="contact-body">
           Our database is built on African excellence. If you're a professional
-          ready to work with the right clients — the vetting process starts
+          ready to work with the right clients, the vetting process starts
           here.
         </p>
         <div class="contact-actions">
@@ -574,9 +641,12 @@
 
     <footer role="contentinfo">
       <div class="footer-brand">
-        <!-- <span class="f-logo"><span>ACE</span>-VSS</span> -->
         <a class="f-logo" href="index.html">
-          <img src="Logos/SVG/ace-vss-wordmark-peach.svg" alt="ACE Virtual Support Services" height="24">
+          <img
+            src="Logos/SVG/ace-vss-wordmark-peach.svg"
+            alt="ACE Virtual Support Services"
+            height="24"
+          />
         </a>
         <div class="f-full">ACE Virtual Support Services</div>
         <p>
@@ -657,7 +727,7 @@
         <h6>Services</h6>
         <ul>
           <li><a href="#services">ACE Micro</a></li>
-          <li><a href="#services">ACE Match Standard</a></li>
+          <li><a href="#services">ACE Match</a></li>
           <li><a href="#services">ACE Manage</a></li>
           <li><a href="#hightouch">High-Touch Tier</a></li>
         </ul>
