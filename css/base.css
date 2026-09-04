@@ -1,11 +1,3 @@
-/* ============================================
-   BASE.CSS
-   Shared across every page: fonts, tokens, reset,
-   accessibility, nav shell, mobile drawer, footer,
-   section typography, animations.
-   Load this BEFORE the page-specific stylesheet.
-   ============================================ */
-
 /* FONTS */
 @font-face {
   font-family: "Kelvinch";
