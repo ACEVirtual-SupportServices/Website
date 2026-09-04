@@ -383,8 +383,12 @@ section {
 }
 .diff-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.2rem;
+}
+
+.diff-card {
+  min-width: 0;
 }
 .diff-card {
   padding: 1.6rem;
@@ -410,6 +414,7 @@ section {
   font-weight: 600;
   color: var(--cream);
   margin-bottom: 0.4rem;
+  overflow-wrap: anywhere;
 }
 .diff-card p {
   font-size: 0.875rem;
