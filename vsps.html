@@ -11,9 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/vps.css" />
     <!-- Google tag (gtag.js) -->
     <script
@@ -58,7 +59,13 @@
 
     <header>
       <nav aria-label="Main navigation">
-        <a class="nav-logo" href="index.html"><span>ACE</span>-VSS</a>
+        <a class="nav-logo" href="index.html">
+          <img
+            src="Logos/SVG/ace-vss-wordmark-peach.svg"
+            alt="ACE Virtual Support Services"
+            height="26"
+          />
+        </a>
         <ul class="nav-links" role="list">
           <li><a href="index.html">Home</a></li>
           <li><a href="#offer">What We Offer</a></li>
@@ -81,7 +88,7 @@
     </header>
 
     <main id="main-content">
-      <!-- PAGE HERO — gold, immediately distinct -->
+      <!-- PAGE HERO — peach, immediately distinct -->
       <section id="page-hero" aria-labelledby="vsps-heading">
         <div class="hero-lines" aria-hidden="true"></div>
         <div class="hero-mark" aria-hidden="true">VSP</div>
@@ -108,9 +115,10 @@
             <h2>What makes ACE <em>different for you</em></h2>
             <ul class="panel-list">
               <li>
-                <span class="tick" aria-hidden="true">✓</span>Under ACE Match
-                Standard, your agreed compensation goes directly between you and
-                your client — we don't deduct from it
+                <span class="tick" aria-hidden="true">✓</span>A one-time
+                network activation fee applies under ACE Match, payable from
+                your first month's earnings only. Your ongoing compensation
+                is yours in full
               </li>
               <li>
                 <span class="tick" aria-hidden="true">✓</span>Clients are
@@ -122,7 +130,7 @@
               </li>
               <li>
                 <span class="tick" aria-hidden="true">✓</span>On ACE Manage
-                placements, we step in if issues arise. On ACE Match Standard,
+                placements, we step in if issues arise. On ACE Match,
                 optional mediation cover is available — you are never entirely
                 without a back-up
               </li>
@@ -152,12 +160,13 @@
           <div class="placement-note">
             <h3>A note on the network activation fee</h3>
             <p>
-              When you're placed with a client through ACE Match Standard, a
-              <strong>one-time network activation fee</strong> applies — separate from
-              your client compensation. It covers the matching, vetting, and
-              coordination ACE-VSS does on your behalf. Your agreed compensation
-              with the client is <strong>yours in full</strong>. We do not
-              deduct from it.
+              When you're placed with a client through ACE Match, a
+              <strong>one-time network activation fee</strong> applies. It is
+              payable from your first month's earnings, never before, and it
+              is charged once. It covers the matching, vetting, and
+              coordination ACE-VSS does on your behalf. After that, your
+              ongoing compensation with the client is
+              <strong>yours in full</strong>.
             </p>
           </div>
         </div>
@@ -175,7 +184,7 @@
             <h3>Managed Conflict Support</h3>
             <p>
               On ACE Manage placements, we handle escalation between you and
-              your client. For ACE Match Standard, an optional mediation add-on
+              your client. For ACE Match, an optional mediation add-on
               is available — so you're never entirely on your own if things get
               difficult.
             </p>
@@ -619,6 +628,104 @@
         </div>
       </section>
 
+      <!-- VSP JOURNEY — what happens after database activation. Required by
+           the update brief (item 4): the vetting process previously ended
+           at "Database Activation" with no explanation of what comes next. -->
+      <section id="journey" aria-labelledby="journey-heading">
+        <div class="process-header fade-up">
+          <div class="section-label" style="justify-content: center">
+            After You're In
+          </div>
+          <h2
+            class="section-title"
+            id="journey-heading"
+            style="color: var(--cream); text-align: center"
+          >
+            What happens<br /><em>after activation.</em>
+          </h2>
+          <p
+            class="section-body"
+            style="color: rgba(245, 240, 232, 0.65); margin-top: 1rem; max-width: 640px; margin-left: auto; margin-right: auto; text-align: center"
+          >
+            Getting into the database is the first step, not the finish line.
+            Here is exactly what happens next.
+          </p>
+        </div>
+
+        <div class="journey-list fade-up" role="list">
+          <div class="journey-item" role="listitem">
+            <span class="journey-num" aria-hidden="true">01</span>
+            <div>
+              <h3>Database activation</h3>
+              <p>
+                Activation means you have cleared our vetting standard and are
+                now visible to be matched with clients. It is the start of
+                your eligibility, not a placement itself.
+              </p>
+            </div>
+          </div>
+          <div class="journey-item" role="listitem">
+            <span class="journey-num" aria-hidden="true">02</span>
+            <div>
+              <h3>How matching works</h3>
+              <p>
+                You are matched to client briefs by ACE-VSS. You do not bid or
+                compete on proposals. When a brief fits your profile, we bring
+                it to you.
+              </p>
+            </div>
+          </div>
+          <div class="journey-item" role="listitem">
+            <span class="journey-num" aria-hidden="true">03</span>
+            <div>
+              <h3>How you're engaged and paid</h3>
+              <p>
+                The way you're paid, and who you answer to, depends on the
+                engagement type.
+              </p>
+              <ul class="engagement-list">
+                <li>
+                  <strong>ACE Micro:</strong> you work through ACE-VSS and are
+                  paid by ACE-VSS.
+                </li>
+                <li>
+                  <strong>ACE Match:</strong> you contract with the client
+                  directly and are paid by them directly.
+                </li>
+                <li>
+                  <strong>ACE Manage:</strong> you are paid through ACE-VSS,
+                  and you have a manager to escalate to if issues arise.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="fee-callout fade-up">
+          <h3>On fees</h3>
+          <p>
+            Applying, being vetted and joining the ACE-VSS database cost
+            nothing.
+          </p>
+          <p>
+            If we place you with a client under ACE Match, a one-time network
+            activation fee applies. It is payable from your first month's
+            earnings, never before, and it is charged once. Your ongoing
+            compensation is yours in full.
+          </p>
+          <p>
+            The full terms, including the exact figure, are shared with you
+            at activation, before you accept any placement.
+          </p>
+        </div>
+
+        <p class="journey-expectation fade-up">
+          Activation confirms you've met our standard. It is not a guarantee
+          of immediate placement. Your first brief arrives when a client need
+          genuinely fits your profile.
+        </p>
+      </section>
+
       <!-- GET VETTED — Tally embed -->
       <section id="apply" aria-labelledby="apply-heading">
         <div class="apply-inner">
@@ -698,7 +805,13 @@
 
     <footer role="contentinfo">
       <div class="footer-brand">
-        <span class="f-logo"><span>ACE</span>-VSS</span>
+        <a class="f-logo" href="index.html">
+          <img
+            src="Logos/SVG/ace-vss-wordmark-peach.svg"
+            alt="ACE Virtual Support Services"
+            height="24"
+          />
+        </a>
         <div class="f-full">ACE Virtual Support Services</div>
         <p>
           A curated talent intelligence platform connecting businesses with

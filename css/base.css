@@ -50,7 +50,6 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  outline: 5px solid red;
   font-family: "Public Sans", sans-serif;
   color: var(--charcoal);
   overflow-x: hidden;
@@ -470,6 +469,96 @@ footer ul a:hover {
   font-size: 0.82rem;
   color: rgba(245, 240, 232, 0.25);
   letter-spacing: 0.04em;
+}
+
+/* STEP ACCORDION — numbered step-by-step process, used on clients and VSP pages */
+.step-accordion {
+  border-bottom: 1px solid rgba(60, 60, 59, 0.1);
+}
+.step-acc-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem 0;
+  text-align: left;
+}
+.step-acc-trigger:hover .step-acc-title {
+  color: var(--peach);
+}
+.step-acc-num {
+  font-family: "Kelvinch", serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--peach);
+  opacity: 0.6;
+  min-width: 36px;
+  line-height: 1;
+}
+.step-acc-title {
+  font-family: "Kelvinch", serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  flex: 1;
+  transition: color 0.2s;
+}
+.step-acc-icon {
+  width: 26px;
+  height: 26px;
+  border: 1px solid rgba(60, 60, 59, 0.2);
+  border-radius: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.step-acc-icon svg {
+  width: 11px;
+  height: 11px;
+  stroke: var(--charcoal);
+  fill: none;
+  stroke-width: 2;
+  transition: transform 0.3s;
+}
+.step-acc-trigger[aria-expanded="true"] .step-acc-icon {
+  background: rgba(60, 60, 59, 0.06);
+}
+.step-acc-trigger[aria-expanded="true"] .step-acc-icon svg {
+  transform: rotate(180deg);
+}
+.step-acc-body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.step-acc-body.open {
+  max-height: 300px;
+}
+.step-acc-body-inner {
+  padding: 0.2rem 0 1.4rem 3rem;
+}
+.step-acc-body-inner p {
+  font-size: 0.95rem;
+  color: rgba(60, 60, 59, 0.75);
+  line-height: 1.8;
+}
+
+/* TALLY EMBED WRAPPER — shared iframe reset, used on clients and VSP pages */
+.tally-wrap {
+  background: rgba(245, 240, 232, 0.03);
+  border: 1px solid rgba(227, 165, 117, 0.15);
+  padding: 2.5rem;
+}
+.tally-wrap iframe {
+  width: 100%;
+  border: none;
+  display: block;
+  min-height: 500px;
 }
 
 /* ANIMATIONS */
