@@ -1,10 +1,14 @@
 body {
-  background: var(--cream);
+  /* background: var(--cream); */
+  background-image: url('../assets/ace-vss-arc-pattern.svg');
+  background-repeat: repeat;
+  background-size: 50px 50px;
 }
 
 /* NAV — transparent + blurred over the dark hero (page-specific look) */
 nav {
   border-bottom: 1px solid var(--peach);
+  /* border: 2px solid green; */
 }
 
 /* HERO */
