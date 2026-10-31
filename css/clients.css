@@ -676,7 +676,7 @@ section {
 
 /* CLIENT INQUIRY — Tally embed */
 #inquiry {
-  background: var(--brown);
+  background: var(--cream);
   padding: 6rem 4rem;
   border-top: 1px solid rgba(227, 165, 117, 0.15);
 }
@@ -691,7 +691,7 @@ section {
   font-family: "Kelvinch", serif;
   font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 300;
-  color: var(--cream);
+  color: var(--brown);
   text-align: center;
   line-height: 1.15;
   margin-bottom: 1rem;
@@ -702,7 +702,7 @@ section {
 }
 .inquiry-sub {
   font-size: 1rem;
-  color: rgba(245, 240, 232, 0.55);
+  color: var(--brown);
   text-align: center;
   line-height: 1.8;
   max-width: 520px;

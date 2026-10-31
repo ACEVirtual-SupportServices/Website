@@ -1,199 +1,37 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-:root {
-  --forest: #1a2e22;
-  --forest-mid: #243d2e;
-  --forest-light: #2f5240;
-  --gold: #c9a84c;
-  --gold-light: #d9bc74;
-  --cream: #f5f0e8;
-  --cream-warm: #f0ead8;
-  --text-mid: #3a3a3a;
-  --text-light: #6b6b6b;
-}
+/* thank-you-newsletter.css — Subscription confirmed (dark page)
+   Requires base.css to load first. It supplies the brand tokens, reset,
+   nav shell, hamburger, mobile drawer, overlay and nav CTA. */
+
 html,
 body {
   height: 100%;
 }
 body {
-  font-family: "DM Sans", sans-serif;
-  background: var(--forest);
+  background: var(--charcoal);
   color: var(--cream);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 200;
-  padding: 1.2rem 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(26, 46, 34, 0.98);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+
+/* NAV — page-specific colours only (layout lives in base.css).
+   Scoped to header so the mobile drawer (also a <nav>) is unaffected. */
+header nav {
+  background: rgba(60, 60, 59, 0.98);
+  border-bottom: 1px solid rgba(227, 165, 117, 0.2);
 }
 .nav-logo {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Kelvinch", serif;
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--cream);
-  text-decoration: none;
   letter-spacing: 0.06em;
 }
 .nav-logo span {
-  color: var(--gold);
-}
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-}
-.nav-links a {
-  font-size: 0.82rem;
-  color: rgba(245, 240, 232, 0.7);
-  text-decoration: none;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  transition: color 0.2s;
-}
-.nav-links a:hover {
-  color: var(--gold);
-}
-.nav-cta {
-  background: var(--gold);
-  color: var(--forest);
-  padding: 0.55rem 1.4rem;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 2px;
-}
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.4rem;
-  flex-direction: column;
-  gap: 5px;
-}
-.hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--cream);
-  transition: all 0.3s;
-  border-radius: 1px;
-}
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: 250;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.35s;
-}
-.overlay.open {
-  opacity: 1;
-  pointer-events: all;
-}
-.mobile-drawer {
-  position: fixed;
-  top: 0;
-  left: unset;
-  right: -100%;
-  width: min(320px, 85vw);
-  height: 100vh;
-  background: var(--forest);
-  z-index: 300;
-  padding: 5rem 2rem 2rem;
-  display: flex;
-  flex-direction: column;
-  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.3);
-  overflow-y: auto;
-}
-.mobile-drawer.open {
-  right: 0;
-}
-.drawer-close {
-  position: absolute;
-  top: 1.2rem;
-  right: 1.2rem;
-  background: none;
-  border: 1px solid rgba(201, 168, 76, 0.3);
-  color: var(--gold);
-  width: 36px;
-  height: 36px;
-  cursor: pointer;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 2px;
-}
-.drawer-nav {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-}
-.drawer-nav li a {
-  display: block;
-  padding: 1rem 0;
-  font-size: 1rem;
-  color: rgba(245, 240, 232, 0.75);
-  text-decoration: none;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  border-bottom: 1px solid rgba(201, 168, 76, 0.1);
-  transition: color 0.2s;
-}
-.drawer-nav li a:hover {
-  color: var(--gold);
-}
-.drawer-ctas {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  margin-top: 2rem;
-}
-.drawer-cta-primary {
-  background: var(--gold);
-  color: var(--forest);
-  padding: 0.85rem 1.5rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 2px;
-  text-align: center;
-}
-.drawer-cta-secondary {
-  border: 1px solid rgba(201, 168, 76, 0.4);
-  color: var(--gold);
-  padding: 0.85rem 1.5rem;
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 2px;
-  text-align: center;
+  color: var(--peach);
 }
 
+/* MAIN */
 main {
   flex: 1;
   display: flex;
@@ -214,11 +52,11 @@ main {
   font-size: 0.82rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--peach);
   margin-bottom: 1.2rem;
 }
 .ty-heading {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Kelvinch", serif;
   font-size: clamp(2.2rem, 5vw, 3.2rem);
   font-weight: 300;
   color: var(--cream);
@@ -227,23 +65,23 @@ main {
 }
 .ty-heading em {
   font-style: italic;
-  color: var(--gold);
+  color: var(--peach);
 }
 .ty-body {
   font-size: 1rem;
-  color: rgba(245, 240, 232, 0.62);
+  color: rgba(253, 227, 203, 0.7);
   line-height: 1.85;
   margin-bottom: 2.5rem;
 }
 .ty-divider {
   width: 48px;
   height: 1px;
-  background: rgba(201, 168, 76, 0.3);
+  background: rgba(227, 165, 117, 0.3);
   margin: 0 auto 2.5rem;
 }
 .ty-next {
   font-size: 0.875rem;
-  color: rgba(245, 240, 232, 0.45);
+  color: rgba(253, 227, 203, 0.6);
   line-height: 1.8;
   margin-bottom: 2.5rem;
 }
@@ -254,30 +92,42 @@ main {
   justify-content: center;
 }
 .btn-gold {
-  background: var(--gold);
-  color: var(--forest);
+  background: var(--peach);
+  color: var(--charcoal);
   padding: 0.9rem 2.2rem;
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
-  border-radius: 2px;
+  border-radius: 20px;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-gold:hover {
+  background: var(--brown);
+  color: var(--peach);
 }
 .btn-outline-gold {
-  border: 2px solid rgba(201, 168, 76, 0.4);
-  color: var(--gold);
+  border: 2px solid rgba(227, 165, 117, 0.4);
+  color: var(--peach);
   padding: 0.9rem 2.2rem;
   font-size: 0.875rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
-  border-radius: 2px;
+  border-radius: 20px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-outline-gold:hover {
+  border-color: var(--peach);
+  background: rgba(227, 165, 117, 0.08);
 }
 
+/* FOOTER — resets base.css's 4-column `footer` grid to a slim single row. */
 .ty-footer {
+  background: transparent;
   padding: 2rem 4rem;
-  border-top: 1px solid rgba(201, 168, 76, 0.1);
+  border-top: 1px solid rgba(227, 165, 117, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -285,31 +135,21 @@ main {
   gap: 1rem;
 }
 .ty-footer-logo {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Kelvinch", serif;
   font-size: 1rem;
   font-weight: 600;
   color: var(--cream);
   text-decoration: none;
 }
 .ty-footer-logo span {
-  color: var(--gold);
+  color: var(--peach);
 }
 .ty-footer p {
   font-size: 0.82rem;
-  color: rgba(245, 240, 232, 0.25);
+  color: rgba(253, 227, 203, 0.5);
 }
 
 @media (max-width: 960px) {
-  nav {
-    padding: 1rem 1.5rem;
-  }
-  .nav-links,
-  .nav-cta {
-    display: none;
-  }
-  .hamburger {
-    display: flex;
-  }
   .ty-footer {
     padding: 2rem 1.5rem;
     flex-direction: column;
