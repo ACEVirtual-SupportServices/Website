@@ -299,19 +299,19 @@ nav {
   gap: 0.6rem;
   margin-bottom: 1.5rem;
 }
-.section-label::before {
+/* .section-label::before {
   content: "";
   display: block;
   width: 28px;
   height: 1px;
   background: var(--peach);
-}
+} */
 .section-label.dark {
   color: var(--charcoal);
 }
-.section-label.dark::before {
+/* .section-label.dark::before {
   background: var(--charcoal);
-}
+} */
 .section-title {
   font-family: "Kelvinch", serif;
   font-size: clamp(2.2rem, 3.5vw, 3.2rem);
