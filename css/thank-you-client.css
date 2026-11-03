@@ -13,23 +13,6 @@ body {
   min-height: 100vh;
 }
 
-/* NAV — page-specific colours only (layout lives in base.css).
-   Scoped to header so the mobile drawer (also a <nav>) is unaffected. */
-header nav {
-  background: rgba(60, 60, 59, 0.98);
-  border-bottom: 1px solid rgba(227, 165, 117, 0.2);
-}
-.nav-logo {
-  font-family: "Kelvinch", serif;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--cream);
-  letter-spacing: 0.06em;
-}
-.nav-logo span {
-  color: var(--peach);
-}
-
 /* MAIN */
 main {
   flex: 1;
@@ -148,37 +131,4 @@ main {
 .btn-outline-forest:hover {
   background: var(--charcoal);
   color: var(--cream);
-}
-
-/* FOOTER — resets base.css's 4-column `footer` grid to a slim single row. */
-.ty-footer {
-  background: transparent;
-  padding: 2rem 4rem;
-  border-top: 1px solid rgba(60, 60, 59, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-.ty-footer-logo {
-  font-family: "Kelvinch", serif;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--charcoal);
-  text-decoration: none;
-}
-.ty-footer-logo span {
-  color: var(--peach);
-}
-.ty-footer p {
-  font-size: 0.82rem;
-  color: rgba(60, 60, 59, 0.75);
-}
-
-@media (max-width: 960px) {
-  .ty-footer {
-    padding: 2rem 1.5rem;
-    flex-direction: column;
-  }
 }

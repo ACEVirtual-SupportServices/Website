@@ -615,3 +615,17 @@ html.js-ready .fade-up.visible {
     padding: 1.5rem;
   }
 }
+
+header nav {
+  background: rgba(60, 60, 59, 0.98);
+  border-bottom: 1px solid rgba(227, 165, 117, 0.2);
+}
+
+/* Footer: "Based in Nigeria? See our local pricing" link */
+.footer-bottom a {
+  color: var(--peach);
+  text-decoration: underline;
+}
+.footer-bottom a:hover {
+  text-decoration: none;
+}
