@@ -561,7 +561,7 @@ footer ul a:hover {
 
 /* TALLY EMBED WRAPPER — shared iframe reset, used on clients and VSP pages */
 .tally-wrap {
-  background: rgba(245, 240, 232, 0.03);
+  background: var(--peach);
   border: 1px solid rgba(227, 165, 117, 0.15);
   padding: 2.5rem;
 }
