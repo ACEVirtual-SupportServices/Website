@@ -640,6 +640,20 @@ section {
   line-height: 1.7;
 }
 
+/* The journey header reuses .process-header (a 560px left-aligned block).
+   Here it needs to sit in the middle of the section, with its label. */
+#journey .process-header {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 640px;
+  text-align: center;
+}
+#journey .section-label,
+.protect-block .section-label {
+  display: flex;
+  justify-content: center;
+}
+
 /* GET VETTED — Tally embed */
 #apply {
   background: var(--charcoal);
@@ -974,5 +988,174 @@ section {
   }
   .hero-cta-row {
     flex-direction: column;
+  }
+}
+
+/* VSP VOICES — testimonials. Cream band between the charcoal journey and
+   charcoal apply sections. */
+#voices {
+  background: var(--cream);
+}
+.voices-header {
+  max-width: 560px;
+  margin-bottom: 3.5rem;
+}
+.voice-mark {
+  display: block;
+  font-family: "Kelvinch", serif;
+  font-size: 5rem;
+  line-height: 0.7;
+  height: 2.6rem;
+  color: var(--peach);
+}
+.voice-by strong {
+  display: block;
+  font-family: "Kelvinch", serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.voice-role {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.voice-tag {
+  display: inline-block;
+  margin-top: 0.7rem;
+  padding: 0.25rem 0.8rem;
+  border: 1px solid rgba(227, 165, 117, 0.5);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--peach);
+}
+
+/* Featured testimonial (has a headshot) */
+.voice-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  background: var(--charcoal);
+  border-bottom: 3px solid var(--peach);
+  margin-bottom: 1.5rem;
+}
+.voice-photo {
+  background: #ffffff;
+  min-height: 100%;
+}
+.voice-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  object-position: center 18%;
+}
+.voice-feature-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3.5rem 3.5rem 3rem;
+}
+.voice-feature blockquote p {
+  font-family: "Kelvinch", serif;
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--cream);
+}
+.voice-feature .voice-by {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(227, 165, 117, 0.2);
+}
+.voice-feature .voice-by strong {
+  color: var(--cream);
+}
+.voice-feature .voice-role {
+  color: rgba(245, 240, 232, 0.6);
+}
+
+/* Supporting testimonials (no headshot: initials mark, same square as the
+   site's other icon tiles) */
+.voice-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.voice-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  padding: 2.5rem;
+  border-bottom: 3px solid var(--peach);
+  min-width: 0;
+}
+.voice-card blockquote {
+  flex: 1;
+}
+.voice-card blockquote p {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: rgba(60, 60, 59, 0.82);
+}
+.voice-card .voice-by {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(60, 60, 59, 0.12);
+}
+.voice-card .voice-by strong {
+  color: var(--charcoal);
+}
+.voice-card .voice-role {
+  color: rgba(60, 60, 59, 0.6);
+}
+.voice-card .voice-tag {
+  color: var(--brown);
+  border-color: rgba(227, 165, 117, 0.7);
+}
+.voice-initials {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--peach);
+  color: var(--charcoal);
+  font-family: "Kelvinch", serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.voice-id {
+  min-width: 0;
+}
+
+@media (max-width: 960px) {
+  .voices-header {
+    margin-bottom: 2.5rem;
+  }
+  .voice-feature {
+    grid-template-columns: 1fr;
+  }
+  .voice-photo img {
+    min-height: 0;
+    height: 380px;
+    object-position: center 15%;
+  }
+  .voice-feature-body {
+    padding: 2rem 1.5rem;
+  }
+  .voice-grid {
+    grid-template-columns: 1fr;
+  }
+  .voice-card {
+    padding: 2rem 1.5rem;
   }
 }
