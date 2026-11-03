@@ -1,11 +1,3 @@
-/* ============================================
-   BASE.CSS
-   Shared across every page: fonts, tokens, reset,
-   accessibility, nav shell, mobile drawer, footer,
-   section typography, animations.
-   Load this BEFORE the page-specific stylesheet.
-   ============================================ */
-
 /* FONTS */
 @font-face {
   font-family: "Kelvinch";
@@ -131,11 +123,19 @@ nav {
   font-size: 0.875rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  transition: color 0.2s;
+  /* transition: color 0.2s; */
+  transition: all 0.3s ease-in-out;
+  /* transition: background 0.2s, color 0.2s; */
 }
 .nav-links a:hover,
 .nav-links a[aria-current="page"] {
-  color: var(--peach);
+  color: var(--charcoal);
+  padding: 0.55rem 1.4rem;
+  /* border: 1px solid green; */
+  border-radius: 20px;
+  /* transition: color 0.5s; */
+  background: var(--peach);
+  transition: all 0.3s ease-in-out;
 }
 .nav-cta {
   background: var(--peach);
@@ -146,13 +146,16 @@ nav {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
-  border-radius: 2px;
-  transition: background 0.2s, color 0.2s;
+  border-radius: 20px;
+  /* transition: background 0.2s, color 0.2s; */
+  transition: all 0.3s ease-in-out;
   white-space: nowrap;
 }
 .nav-cta:hover {
   background: var(--brown);
   color: var(--peach);
+  border-radius: 20px;
+  padding: 0.55rem 1.4rem;
 }
 
 /* HAMBURGER */
@@ -296,19 +299,19 @@ nav {
   gap: 0.6rem;
   margin-bottom: 1.5rem;
 }
-.section-label::before {
+/* .section-label::before {
   content: "";
   display: block;
   width: 28px;
   height: 1px;
   background: var(--peach);
-}
+} */
 .section-label.dark {
   color: var(--charcoal);
 }
-.section-label.dark::before {
+/* .section-label.dark::before {
   background: var(--charcoal);
-}
+} */
 .section-title {
   font-family: "Kelvinch", serif;
   font-size: clamp(2.2rem, 3.5vw, 3.2rem);
@@ -352,7 +355,7 @@ nav {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
-  border-radius: 2px;
+  border-radius: 20px;
   display: inline-block;
   transition: background 0.2s, transform 0.15s;
 }
@@ -386,6 +389,9 @@ footer {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1fr;
   gap: 3rem;
+}
+footer > div {
+  min-width: 0;
 }
 .f-logo {
   display: block;
@@ -456,6 +462,7 @@ footer ul a {
   color: rgba(245, 240, 232, 0.55);
   text-decoration: none;
   transition: color 0.2s;
+  overflow-wrap: anywhere;
 }
 footer ul a:hover {
   color: var(--peach);
@@ -473,6 +480,96 @@ footer ul a:hover {
   font-size: 0.82rem;
   color: rgba(245, 240, 232, 0.25);
   letter-spacing: 0.04em;
+}
+
+/* STEP ACCORDION — numbered step-by-step process, used on clients and VSP pages */
+.step-accordion {
+  border-bottom: 1px solid rgba(60, 60, 59, 0.1);
+}
+.step-acc-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem 0;
+  text-align: left;
+}
+.step-acc-trigger:hover .step-acc-title {
+  color: var(--peach);
+}
+.step-acc-num {
+  font-family: "Kelvinch", serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--peach);
+  opacity: 0.6;
+  min-width: 36px;
+  line-height: 1;
+}
+.step-acc-title {
+  font-family: "Kelvinch", serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  flex: 1;
+  transition: color 0.2s;
+}
+.step-acc-icon {
+  width: 26px;
+  height: 26px;
+  border: 1px solid rgba(60, 60, 59, 0.2);
+  border-radius: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.step-acc-icon svg {
+  width: 11px;
+  height: 11px;
+  stroke: var(--charcoal);
+  fill: none;
+  stroke-width: 2;
+  transition: transform 0.3s;
+}
+.step-acc-trigger[aria-expanded="true"] .step-acc-icon {
+  background: rgba(60, 60, 59, 0.06);
+}
+.step-acc-trigger[aria-expanded="true"] .step-acc-icon svg {
+  transform: rotate(180deg);
+}
+.step-acc-body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.step-acc-body.open {
+  max-height: 300px;
+}
+.step-acc-body-inner {
+  padding: 0.2rem 0 1.4rem 3rem;
+}
+.step-acc-body-inner p {
+  font-size: 0.95rem;
+  color: rgba(60, 60, 59, 0.75);
+  line-height: 1.8;
+}
+
+/* TALLY EMBED WRAPPER — shared iframe reset, used on clients and VSP pages */
+.tally-wrap {
+  background: var(--cream);
+  border: 1px solid rgba(227, 165, 117, 0.15);
+  padding: 2.5rem;
+}
+.tally-wrap iframe {
+  width: 100%;
+  border: none;
+  display: block;
+  min-height: 500px;
 }
 
 /* ANIMATIONS */
@@ -517,4 +614,18 @@ html.js-ready .fade-up.visible {
     text-align: center;
     padding: 1.5rem;
   }
+}
+
+header nav {
+  background: rgba(60, 60, 59, 0.98);
+  border-bottom: 1px solid rgba(227, 165, 117, 0.2);
+}
+
+/* Footer: "Based in Nigeria? See our local pricing" link */
+.footer-bottom a {
+  color: var(--peach);
+  text-decoration: underline;
+}
+.footer-bottom a:hover {
+  text-decoration: none;
 }
