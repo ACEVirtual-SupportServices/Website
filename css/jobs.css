@@ -1,8 +1,15 @@
+/* Dark page with the ACE arc pattern, same as the FAQ page */
 body {
-  background: var(--cream);
+  background-color: var(--charcoal);
+  background-image: url("../assets/ace-vss-arc-pattern.svg");
+  background-repeat: repeat;
+  background-size: 120px 120px;
+  color: var(--cream);
 }
 
-nav {
+/* Scoped to the header bar only. A bare "nav" rule also hit the mobile
+   drawer (which is a <nav> too) and broke it. */
+header > nav {
   background: rgba(60, 60, 59, 0.98);
   border-bottom: 1px solid rgba(227, 165, 117, 0.2);
 }
@@ -499,4 +506,187 @@ section {
   .role-card {
     padding: 2rem 1.5rem;
   }
+}
+/* =========================================================
+   DARK THEME (arc pattern shows through every section)
+   ========================================================= */
+#page-hero {
+  background: transparent;
+  border-bottom: 1px solid rgba(227, 165, 117, 0.25);
+}
+.hero-grid-bg {
+  display: none;
+}
+.hero-mark-bg {
+  color: rgba(227, 165, 117, 0.07);
+}
+
+/* Notice: a soft panel instead of a flat sand band */
+#notice {
+  background: rgba(71, 63, 53, 0.55);
+  border-top: 0;
+  border-bottom: 1px solid rgba(227, 165, 117, 0.2);
+}
+.notice-inner h2 {
+  color: var(--cream);
+}
+.notice-inner p {
+  color: rgba(253, 227, 203, 0.78);
+}
+.notice-inner a {
+  color: var(--peach);
+}
+.notice-inner a:hover {
+  color: var(--cream);
+}
+
+/* Roles */
+#roles {
+  background: transparent;
+}
+.roles-intro h2,
+.roles-intro .section-title {
+  color: var(--cream);
+}
+.roles-intro p,
+.roles-intro .section-sub {
+  color: rgba(253, 227, 203, 0.75);
+}
+
+.role-card {
+  position: relative;
+  background: rgba(60, 60, 59, 0.88);
+  border: 1px solid rgba(227, 165, 117, 0.25);
+  border-top: 3px solid var(--peach);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+.role-fashion,
+.role-arch {
+  background: rgba(60, 60, 59, 0.88);
+  border-color: rgba(227, 165, 117, 0.25);
+}
+.role-arch {
+  border-left: 1px solid rgba(227, 165, 117, 0.25);
+}
+.role-card h2 {
+  color: var(--cream);
+}
+.role-desc {
+  color: rgba(253, 227, 203, 0.8);
+}
+.role-section-title {
+  color: var(--peach);
+}
+.req-list li {
+  color: rgba(253, 227, 203, 0.82);
+}
+
+.rtag.rt-type {
+  background: var(--peach);
+  color: var(--charcoal);
+}
+.rtag.rt-loc {
+  border-color: rgba(253, 227, 203, 0.3);
+  color: rgba(253, 227, 203, 0.8);
+}
+.rtag.rt-exp {
+  border-color: rgba(227, 165, 117, 0.55);
+  color: var(--peach);
+}
+.rtag.rt-ind {
+  background: rgba(227, 165, 117, 0.14);
+  color: var(--cream);
+  border-color: rgba(227, 165, 117, 0.35);
+}
+
+.role-note {
+  color: rgba(253, 227, 203, 0.8);
+}
+.role-note strong {
+  color: var(--cream);
+}
+.note-scope {
+  background: rgba(227, 165, 117, 0.12);
+}
+.note-hybrid {
+  background: rgba(253, 227, 203, 0.06);
+  border-left-color: rgba(253, 227, 203, 0.3);
+}
+
+.tool-chip {
+  background: rgba(253, 227, 203, 0.1);
+  color: rgba(253, 227, 203, 0.88);
+  border: 1px solid rgba(253, 227, 203, 0.12);
+}
+.tool-chip.plus {
+  border: 1px dashed rgba(227, 165, 117, 0.55);
+  color: var(--peach);
+}
+
+/* Warning box stays red-toned but readable on dark */
+.disq-box {
+  background: rgba(220, 90, 90, 0.08);
+  border-left-color: rgba(230, 110, 110, 0.55);
+}
+.disq-title {
+  color: rgba(240, 140, 140, 0.9);
+}
+.disq-list li {
+  color: rgba(253, 227, 203, 0.75);
+}
+.disq-list li::before {
+  color: rgba(240, 140, 140, 0.8);
+}
+
+.comp-bar {
+  background: rgba(71, 63, 53, 0.9);
+  border: 1px solid rgba(227, 165, 117, 0.3);
+}
+.comp-label,
+.comp-per {
+  color: rgba(253, 227, 203, 0.6);
+}
+.role-deadline {
+  color: rgba(253, 227, 203, 0.65);
+}
+.role-deadline strong {
+  color: var(--cream);
+}
+.apply-btn:hover {
+  background: var(--cream);
+}
+
+.general-note {
+  background: rgba(71, 63, 53, 0.75);
+  border: 1px solid rgba(227, 165, 117, 0.25);
+}
+.general-note p {
+  color: rgba(253, 227, 203, 0.78);
+}
+
+/* Bottom CTA */
+#cta-bottom {
+  background: rgba(71, 63, 53, 0.55);
+  border-top: 1px solid rgba(227, 165, 117, 0.25);
+}
+.cta-b-title {
+  color: var(--cream);
+}
+.cta-b-body {
+  color: rgba(253, 227, 203, 0.78);
+}
+.btn-dark {
+  background: var(--peach);
+  color: var(--charcoal);
+}
+.btn-dark:hover {
+  background: var(--cream);
+}
+.btn-dark-out {
+  border-color: rgba(227, 165, 117, 0.6);
+  color: var(--peach);
+}
+.btn-dark-out:hover {
+  background: var(--peach);
+  color: var(--charcoal);
 }

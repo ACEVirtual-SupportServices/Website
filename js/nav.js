@@ -1,13 +1,10 @@
 /* Shared mobile menu (hamburger + drawer), used by every page.
    Needs the markup from build.py: #hamburger, #mobile-drawer, #overlay, #drawer-close.
 
-   Older page scripts still carry their own copy of this code. Two copies would
-   fight (one opens the menu, the other closes it), so if a page script has
-   already wired the menu this file steps aside. Delete the old copy from the
-   page script at your leisure and this one takes over. */
+   Older page scripts may still carry their own copy of this code. This file
+   takes over the hamburger click so two copies can never fight (one opening,
+   the other closing). Delete the old copy from the page script when convenient. */
 (function () {
-  if (typeof window.openDrawer === "function") return;
-
   var hamburger = document.getElementById("hamburger");
   var drawer = document.getElementById("mobile-drawer");
   var overlay = document.getElementById("overlay");
@@ -32,10 +29,17 @@
     document.body.style.overflow = "";
   }
 
-  hamburger.addEventListener("click", function (e) {
-    e.stopPropagation();
-    isOpen ? closeDrawer() : openDrawer();
-  });
+  // Capture phase + stopImmediatePropagation: this copy is the only one that
+  // runs, even if an old page script still has its own hamburger code.
+  hamburger.addEventListener(
+    "click",
+    function (e) {
+      e.stopImmediatePropagation();
+      e.stopPropagation();
+      isOpen ? closeDrawer() : openDrawer();
+    },
+    true
+  );
   if (drawerClose) {
     drawerClose.addEventListener("click", function (e) {
       e.stopPropagation();
