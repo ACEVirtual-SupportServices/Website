@@ -1,9 +1,14 @@
+/* Dark page with the ACE arc pattern, same as the FAQ and Open Roles pages */
 body {
-  background: var(--charcoal);
+  background-color: var(--charcoal);
+  background-image: url("../assets/ace-vss-arc-pattern.svg");
+  background-repeat: repeat;
+  background-size: 120px 120px;
 }
 
-/* NAV — solid bar on this page (page-specific look) */
-nav {
+/* NAV: solid bar on this page. Scoped to the header only, because a bare
+   "nav" rule also styles the mobile drawer (also a <nav>). */
+header > nav {
   background: var(--charcoal);
   border-bottom: 1px solid rgba(227, 165, 117, 0.2);
 }
@@ -13,41 +18,43 @@ section {
   padding: 6rem 4rem;
 }
 
-/* INTRO + HIGH-TOUCH — styles taken from the prototype's For Clients view.
+/* INTRO + HIGH-TOUCH. Same content and structure as the prototype's For
+   Clients view, sized to match the rest of the site (section titles,
+   body text and cards use the same scale as the other pages).
    Everything is prefixed cl- so it cannot clash with base.css. */
 .cl-sec {
-  padding: 4rem 4rem;
+  padding: 5rem 4rem;
   border-bottom: 1px solid rgba(227, 165, 117, 0.1);
 }
 .cl-first {
-  padding-top: 8.5rem; /* clears the fixed nav */
+  padding-top: 9rem; /* clears the fixed nav */
 }
 .cl-wrap {
-  max-width: 760px;
+  max-width: 880px;
   margin: 0 auto;
 }
 .cl-label {
   display: inline-block;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.22em;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--peach);
 }
 .cl-sec h1 {
   font-family: "Kelvinch", Georgia, serif;
-  font-size: clamp(2rem, 4vw, 2.6rem);
-  font-weight: 400;
-  line-height: 1.14;
-  margin: 10px 0 12px;
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin: 1rem 0 1.2rem;
   color: var(--cream);
 }
 .cl-sec h2 {
   font-family: "Kelvinch", Georgia, serif;
-  font-size: clamp(1.5rem, 3vw, 1.9rem);
-  font-weight: 400;
-  line-height: 1.2;
-  margin: 6px 0 8px;
+  font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.15;
+  margin: 0.8rem 0 1rem;
   color: var(--cream);
 }
 .cl-sec h1 em,
@@ -56,69 +63,72 @@ section {
   color: var(--peach);
 }
 .cl-sec p {
-  color: #d6cabd;
-  font-size: 14.2px;
-  line-height: 1.62;
+  color: rgba(253, 227, 203, 0.8);
+  font-size: 1rem;
+  line-height: 1.8;
 }
 .cl-sub {
-  max-width: 47ch;
-  margin-bottom: 14px;
+  max-width: 560px;
+  margin-bottom: 2.2rem;
+  font-size: 1.1rem;
 }
 .cl-card {
   background: rgba(71, 63, 53, 0.6);
-  border: 1px solid rgba(227, 165, 117, 0.18);
+  border: 1px solid rgba(227, 165, 117, 0.22);
   border-radius: 14px;
-  padding: 18px;
-  margin-bottom: 10px;
+  padding: 2.2rem 2.5rem;
+  margin-bottom: 1.2rem;
 }
 .cl-q {
   font-family: "Kelvinch", Georgia, serif;
-  font-size: 17.5px;
-  font-weight: 700;
-  margin-bottom: 5px;
+  font-size: 1.7rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
   color: var(--cream);
 }
 .cl-card .cl-label + .cl-q {
-  margin-top: 5px;
+  margin-top: 0.6rem;
 }
 .cl-price {
   font-family: "Kelvinch", Georgia, serif;
-  font-size: 19px;
+  font-size: 1.6rem;
   color: var(--peach);
-  margin: 7px 0 2px;
+  margin: 1rem 0 0;
 }
 .cl-connector {
-  margin-left: 18px;
-  padding-left: 13px;
-  padding-bottom: 8px;
-  font-size: 11.6px;
-  color: #b3a89c;
-  border-left: 3px solid rgba(227, 165, 117, 0.32);
+  margin-left: 1.5rem;
+  padding-left: 1rem;
+  padding-bottom: 0.9rem;
+  font-size: 0.9rem;
+  color: rgba(253, 227, 203, 0.65);
+  border-left: 3px solid rgba(227, 165, 117, 0.35);
 }
 .cl-layer {
-  margin-left: 18px;
+  margin-left: 1.5rem;
   border-left: 3px solid var(--peach);
   border-radius: 0 14px 14px 0;
   background: rgba(71, 63, 53, 0.42);
 }
 .cl-acts {
   display: flex;
-  gap: 9px;
+  gap: 1rem;
   flex-wrap: wrap;
-  margin-top: 16px;
+  margin-top: 2rem;
 }
 .cl-btn {
   display: inline-block;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 11px 20px;
-  border-radius: 99px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.9rem 2.4rem;
+  border-radius: 20px;
   text-decoration: none;
   cursor: pointer;
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 .cl-btn-outline {
-  border: 1.5px solid rgba(227, 165, 117, 0.5);
+  border: 1.5px solid rgba(227, 165, 117, 0.55);
   color: var(--peach);
 }
 .cl-btn-outline:hover {
@@ -309,7 +319,8 @@ section {
 
 /* CONTACT CTA */
 #contact {
-  background: var(--charcoal);
+  background: transparent;
+  border-top: 1px solid rgba(227, 165, 117, 0.15);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -353,10 +364,17 @@ section {
     padding: 4rem 1.5rem;
   }
   .cl-sec {
-    padding: 2.5rem 1.5rem;
+    padding: 3.5rem 1.5rem;
   }
   .cl-first {
-    padding-top: 6.5rem;
+    padding-top: 7rem;
+  }
+  .cl-card {
+    padding: 1.6rem 1.4rem;
+  }
+  .cl-connector,
+  .cl-layer {
+    margin-left: 0.8rem;
   }
   #inquiry {
     padding: 4rem 1.5rem;

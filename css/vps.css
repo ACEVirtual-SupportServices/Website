@@ -5,12 +5,18 @@
    <link rel="stylesheet" href="css/vps.css">
    ============================================ */
 
+/* Dark page with the ACE arc pattern. The charcoal sections below are
+   transparent so the pattern shows through them. */
 body {
-  background: var(--cream);
+  background-color: var(--charcoal);
+  background-image: url("../assets/ace-vss-arc-pattern.svg");
+  background-repeat: repeat;
+  background-size: 120px 120px;
 }
 
-/* NAV — solid bar, page-specific look (matches clients.html pattern) */
-nav {
+/* NAV: solid bar. Scoped to the header only, because a bare "nav" rule
+   also styles the mobile drawer (which is a <nav> too). */
+header > nav {
   background: rgba(60, 60, 59, 0.98);
   border-bottom: 1px solid rgba(227, 165, 117, 0.2);
 }
@@ -187,7 +193,9 @@ section {
 
 /* QUOTE BAR — background is page-specific */
 .quote-bar {
-  background: var(--charcoal);
+  background: rgba(60, 60, 59, 0.55);
+  border-top: 1px solid rgba(227, 165, 117, 0.15);
+  border-bottom: 1px solid rgba(227, 165, 117, 0.15);
   padding: 2.5rem 4rem;
 }
 .quote-bar blockquote {
@@ -351,7 +359,7 @@ section {
 
 /* DNA */
 #dna {
-  background: var(--charcoal);
+  background: transparent;
   text-align: center;
 }
 #dna .section-label {
@@ -483,7 +491,7 @@ section {
 
 /* VSP JOURNEY — what happens after database activation (P2, item 4) */
 #journey {
-  background: var(--charcoal);
+  background: transparent;
 }
 .journey-list {
   display: flex;
@@ -656,7 +664,7 @@ section {
 
 /* GET VETTED — Tally embed */
 #apply {
-  background: var(--charcoal);
+  background: transparent;
   padding: 6rem 4rem;
   border-top: 1px solid rgba(227, 165, 117, 0.15);
 }

@@ -141,3 +141,117 @@
     font-size: 1.15rem;
   }
 }
+
+/* =========================================================
+   DARK THEME with the ACE arc pattern (as in the prototype)
+   Applies to pricing.html and nigeria.html. This file loads after
+   pricing.css / nigeria.css, so these rules win.
+   ========================================================= */
+body {
+  background-color: var(--charcoal);
+  background-image: url("../assets/ace-vss-arc-pattern.svg");
+  background-repeat: repeat;
+  background-size: 120px 120px;
+  color: var(--cream);
+}
+
+/* Section dividers and text */
+.pricing-section {
+  border-bottom: 1px solid rgba(227, 165, 117, 0.12);
+}
+.pricing-hero .section-title,
+.pricing-section .section-title {
+  color: var(--cream);
+}
+.pricing-hero .section-label.dark,
+.pricing-section .section-label.dark {
+  color: var(--peach);
+}
+.pricing-hero .section-label.dark::before,
+.pricing-section .section-label.dark::before {
+  background: var(--peach);
+}
+.pricing-hero .section-body,
+.pricing-section .section-body {
+  color: rgba(253, 227, 203, 0.82);
+}
+.pricing-section .section-body strong {
+  color: var(--cream);
+}
+.pricing-meta,
+.pricing-section .pricing-meta {
+  color: rgba(253, 227, 203, 0.7);
+}
+
+/* Highlighted "scope session" band */
+.pricing-section[style*="background"] {
+  background: rgba(71, 63, 53, 0.55) !important;
+}
+
+/* Cards */
+.pricing-card {
+  background: rgba(71, 63, 53, 0.6);
+  border: 1px solid rgba(227, 165, 117, 0.22);
+  border-radius: 14px;
+}
+.pricing-card:hover {
+  background: rgba(71, 63, 53, 0.85);
+  border-color: var(--peach);
+}
+.pricing-card h3 {
+  color: var(--cream);
+}
+.price-figure span {
+  color: rgba(253, 227, 203, 0.6);
+}
+.pricing-card li {
+  color: rgba(253, 227, 203, 0.82);
+}
+.pricing-card.layer {
+  border-radius: 0 14px 14px 0;
+  background: rgba(71, 63, 53, 0.42);
+}
+.pricing-card.layer:hover {
+  background: rgba(71, 63, 53, 0.6);
+}
+.price-connector {
+  color: rgba(253, 227, 203, 0.6);
+}
+
+/* Note box */
+.pricing-note {
+  background: rgba(227, 165, 117, 0.1);
+  color: rgba(253, 227, 203, 0.85);
+}
+.pricing-note strong {
+  color: var(--cream);
+}
+
+/* Founding clients */
+.founding {
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(227, 165, 117, 0.16), rgba(71, 63, 53, 0.55));
+}
+.founding-row .what {
+  color: var(--cream);
+}
+.founding-row .who {
+  color: var(--peach);
+}
+
+/* FAQ dropdowns */
+.faq-list {
+  border-top-color: rgba(227, 165, 117, 0.25);
+}
+.faq-item {
+  border-bottom-color: rgba(227, 165, 117, 0.25);
+}
+.faq-item summary {
+  color: var(--cream);
+}
+.faq-item summary:hover {
+  color: var(--peach);
+}
+.faq-item p {
+  color: rgba(253, 227, 203, 0.8);
+}
