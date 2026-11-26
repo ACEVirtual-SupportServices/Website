@@ -1,0 +1,88 @@
+/* Newsletter pop-up — loads after base.css and the page stylesheet.
+   The form inside is the page's own .nl-form (see js/newsletter-popup.js). */
+.nl-popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+.nl-popup-overlay.open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0s;
+}
+.nl-popup {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  background: #ffffff;
+  border-top: 3px solid var(--peach);
+  padding: 2.5rem 2rem 2rem;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+  transform: translateY(16px);
+  transition: transform 0.3s ease;
+}
+.nl-popup-overlay.open .nl-popup {
+  transform: none;
+}
+.nl-popup-close {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid rgba(60, 60, 59, 0.2);
+  border-radius: 2px;
+  color: var(--charcoal);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.nl-popup-close:hover {
+  background: var(--charcoal);
+  color: var(--cream);
+}
+.nl-popup-title {
+  font-family: "Kelvinch", serif;
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--charcoal);
+  margin: 0 2.2rem 0.8rem 0;
+}
+.nl-popup-title em {
+  font-style: italic;
+  color: var(--peach);
+}
+.nl-popup-sub {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(60, 60, 59, 0.75);
+  margin-bottom: 1.5rem;
+}
+/* the form's own card styling isn't needed inside the modal */
+.nl-popup .nl-form {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nl-popup-overlay,
+  .nl-popup-overlay.open,
+  .nl-popup {
+    transition: none;
+  }
+}

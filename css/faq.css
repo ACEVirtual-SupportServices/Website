@@ -1,0 +1,100 @@
+/* ============================================
+   FAQ.CSS — FAQ page
+   Load AFTER base.css
+   ============================================ */
+
+/* DARK PAGE — charcoal with the repeating arc pattern (as in the prototype) */
+body {
+  background-color: var(--charcoal);
+  background-image: url("../assets/ace-vss-arc-pattern.svg");
+  background-repeat: repeat;
+  background-size: 120px 120px;
+  color: var(--cream);
+}
+
+/* NAV — solid bar */
+nav {
+  background: rgba(60, 60, 59, 0.98);
+  border-bottom: 1px solid rgba(227, 165, 117, 0.2);
+}
+
+/* LAYOUT — top padding clears the fixed nav */
+.faq-section {
+  padding: 10rem 4rem 6rem;
+}
+.faq-section {
+  text-align: center;
+}
+.faq-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.faq-section .section-title {
+  color: var(--cream);
+}
+.faq-group-title {
+  font-family: "Kelvinch", serif;
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: var(--cream);
+  margin: 3.5rem 0 1rem;
+}
+.faq-group-title:first-of-type {
+  margin-top: 2.5rem;
+}
+
+/* DROPDOWNS — native <details>, no JavaScript needed */
+.faq-list {
+  border-top: 1px solid rgba(227, 165, 117, 0.2);
+}
+.faq-item {
+  text-align: left;
+  border-bottom: 1px solid rgba(227, 165, 117, 0.2);
+}
+.faq-item summary {
+  position: relative;
+  padding: 1.3rem 2.5rem 1.3rem 0;
+  font-family: "Kelvinch", serif;
+  font-size: 1.3rem;
+  line-height: 1.35;
+  color: var(--cream);
+  cursor: pointer;
+  list-style: none;
+  transition: color 0.2s;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 0.3rem;
+  top: 1.1rem;
+  font-family: "Public Sans", sans-serif;
+  font-size: 1.6rem;
+  color: var(--peach);
+}
+.faq-item[open] summary::after {
+  content: "\2013";
+}
+.faq-item summary:hover {
+  color: var(--peach);
+}
+.faq-item p {
+  padding: 0 2.5rem 1.5rem 0;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #d6cabd;
+}
+
+@media (max-width: 960px) {
+  .faq-section {
+    padding: 8rem 1.5rem 4rem;
+  }
+  .faq-group-title {
+    font-size: 1.45rem;
+  }
+  .faq-item summary {
+    font-size: 1.15rem;
+  }
+}

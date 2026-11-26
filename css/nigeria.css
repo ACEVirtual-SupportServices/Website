@@ -1,0 +1,99 @@
+/* ============================================
+   NIGERIA.CSS — Local Pricing Page
+   Load AFTER base.css
+   ============================================ */
+
+body {
+  background: var(--cream);
+}
+
+/* NAV — solid bar */
+nav {
+  background: rgba(60, 60, 59, 0.98);
+  border-bottom: 1px solid rgba(227, 165, 117, 0.2);
+}
+
+/* LAYOUT */
+/* Extra top padding to clear the fixed nav since there is no notice bar */
+.pricing-hero { 
+  padding: 10rem 4rem 4rem; 
+}
+.pricing-section { 
+  padding: 5rem 4rem; 
+  border-bottom: 1px solid rgba(60, 60, 59, 0.1); 
+}
+.pricing-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 2rem; 
+  margin-top: 2.5rem; 
+}
+
+/* CARDS */
+.pricing-card { 
+  border: 1px solid rgba(227, 165, 117, 0.3); 
+  padding: 2.5rem; 
+  border-radius: 2px; 
+  background: rgba(245, 240, 232, 0.4); 
+  transition: border-color 0.2s, background 0.2s;
+}
+.pricing-card:hover {
+  background: #ffffff;
+  border-color: var(--peach);
+}
+.pricing-card h3 { 
+  font-family: "Kelvinch", serif; 
+  font-size: 1.6rem; 
+  font-weight: 400; 
+  color: var(--charcoal); 
+  margin-bottom: 0.5rem; 
+}
+.price-figure { 
+  font-family: "Kelvinch", serif; 
+  font-size: 2rem; 
+  color: var(--peach); 
+  line-height: 1.2; 
+  margin-bottom: 1rem; 
+}
+.price-figure span { 
+  font-family: "Public Sans", sans-serif; 
+  font-size: 0.85rem; 
+  color: rgba(60, 60, 59, 0.6); 
+}
+.pricing-meta { 
+  font-size: 0.85rem; 
+  color: rgba(60, 60, 59, 0.75); 
+  margin-bottom: 1.5rem; 
+  line-height: 1.6;
+}
+
+/* LISTS */
+.pricing-card ul { 
+  list-style: none; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.8rem; 
+}
+.pricing-card li { 
+  font-size: 0.9rem; 
+  line-height: 1.6; 
+  position: relative; 
+  padding-left: 1.2rem; 
+  color: rgba(60, 60, 59, 0.8);
+}
+.pricing-card li::before { 
+  content: "—"; 
+  color: var(--peach); 
+  position: absolute; 
+  left: 0; 
+}
+
+/* MOBILE OVERRIDES */
+@media (max-width: 960px) {
+  .pricing-hero { 
+    padding: 8rem 1.5rem 3rem; 
+  }
+  .pricing-section {
+    padding: 4rem 1.5rem;
+  }
+}

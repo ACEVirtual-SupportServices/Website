@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ACE-VSS background pattern. Tiles seamlessly at 120x120. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <g fill="none" stroke="#e3a575" stroke-opacity="0.08" stroke-width="1.1" stroke-linecap="round">
+    <path d="M-20 60 A 80 80 0 0 1 60 -20"/>
+    <path d="M100 60 A 80 80 0 0 1 180 -20"/>
+    <path d="M-20 180 A 80 80 0 0 1 60 100"/>
+    <path d="M40 120 A 80 80 0 0 1 120 40"/>
+    <path d="M-80 120 A 80 80 0 0 1 0 40"/>
+    <path d="M40 240 A 80 80 0 0 1 120 160"/>
+  </g>
+</svg>
